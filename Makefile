@@ -18,6 +18,7 @@ SRC = 	print/init_print.c \
 		utils/strlen.c \
 		utils/strdup.c \
 		utils/memcpy.c \
+		utils/strcat.c \
 		assert/assert_fail.c \
 		stringify/init_string.c \
 		stringify/main.c \

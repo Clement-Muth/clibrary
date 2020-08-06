@@ -30,7 +30,7 @@ char *concat(string *string, const char *src);
  * @param replace_value A string containing the text to replace for every
  * successful match of searchValue in this string.
  */
-char *replace(string *string, const char *search_value, const char *replace_value);
+void replace(string *string, const char *search_value, const char *replace_value);
 
 /**
  * Returns a section of a string.

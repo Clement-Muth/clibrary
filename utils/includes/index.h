@@ -31,4 +31,11 @@ void *my_memcpy(void *dest, const void *src, size_t length);
  */
 size_t my_strlen(const char *string);
 
+/**
+ * Returns a string that contains the concatenation of two or more strings.
+ * @param dest The destination of concat
+ * @param src The strings to append to the end of the string.
+ */
+char *my_strcat(char *dest, const char *src);
+
 #endif /* !UTILS_INDEX_H_ */

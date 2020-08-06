@@ -11,9 +11,7 @@
 int main(void)
 {
     print_t print = init_print();
-    string error = init_string("bonjour");
+    string error = init_string("bonjour comment tu vas ?");
 
-    error.replace(&error, "bonjour", "test");
-    print.logger(error.value);
     return (0);
 }
