@@ -6,6 +6,8 @@
 */
 
 #include "../includes/index.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 string init_string(const char *value)
 {
@@ -20,6 +22,6 @@ string init_string(const char *value)
     string.slice = slice;
     string.substr = substr;
     string.length = my_strlen(value);
-    string.value = (char *)value;
+    string.value = my_strdup((char *)value);
     return (string);
 }

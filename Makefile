@@ -6,7 +6,7 @@
 ##
 
 C = gcc
-CFLAGS = -Wall -Werror -Wextra -std=c11 -g -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra -std=c11 -g -fsanitize=address -DDEBUG
 LDFLAGS =  -fsanitize=address -Iincludes/
 
 SRC = 	print/init_print.c \
@@ -16,9 +16,11 @@ SRC = 	print/init_print.c \
 		print/log.c \
 		print/color.c \
 		utils/strlen.c \
+		utils/strdup.c \
+		utils/memcpy.c \
 		assert/assert_fail.c \
 		stringify/init_string.c \
-		main.c \
+		stringify/main.c \
 		stringify/concat.c \
 		stringify/replace.c \
 		stringify/slice.c \

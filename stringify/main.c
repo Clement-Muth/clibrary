@@ -13,9 +13,7 @@ int main(void)
     print_t print = init_print();
     string error = init_string("bonjour");
 
-    printf("%ld\n", error.length);
-    error.concat(&error, " comment ca av ?\n");
-    printf("%ld\n", error.length);
+    error.replace(&error, "bonjour", "test");
     print.logger(error.value);
     return (0);
 }

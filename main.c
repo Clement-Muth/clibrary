@@ -10,8 +10,8 @@
 int main(void)
 {
     print_t print = init_print();
-    string error = init_string();
+    string error = init_string("bonjour");
     
-    print.error("problem occured\n");
+    print.error(error.value);
     return 0;
 }

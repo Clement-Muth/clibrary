@@ -13,5 +13,7 @@
 #include "constant.h"
 #include "struct.h"
 #include "../assert/includes/index.h"
+#include "../stringify/includes/index.h"
+#include "../utils/includes/index.h"
 
 #endif /* !HEADER_H_ */
