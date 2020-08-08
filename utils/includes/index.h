@@ -38,4 +38,13 @@ size_t my_strlen(const char *string);
  */
 char *my_strcat(char *dest, const char *src);
 
+/**
+ * Compare S1 and S2, returning less than, equal to or
+ * greater than zero if S1 is lexicographically less than,
+ * equal to or greater than S2.
+ * @param p1 The string compared.
+ * @param p2 The string to compare.
+ */
+int my_strcmp(const char *p1, const char *p2);
+
 #endif /* !UTILS_INDEX_H_ */

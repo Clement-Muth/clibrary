@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-char *concat(string *string, const char *src)
+string concat(string *string, const char *src)
 {
   int i = 0;
   int j = 0;
@@ -24,5 +24,7 @@ char *concat(string *string, const char *src)
   result[h - 1] = '\0';
   string->value = result;
   string->length = my_strlen(string->value);
-  return (result);
+  string->self->value = string->value;
+  string->self->type = string->type;
+  return (*string);
 }

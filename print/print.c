@@ -7,7 +7,7 @@
 
 #include "includes/index.h"
 
-ssize_t print(char character, int fd)
+void print(char character, int fd)
 {
-    return write(fd, &character, 1);
+    write(fd, &character, 1);
 }

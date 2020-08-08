@@ -2,7 +2,7 @@
 
 int main(void)
 {
-    print_t print = init_print();
+    console print = init_print();
 
     print.error("Test of message with print.error.\n");
     print.warn("An error occured. Please try again later.\n");

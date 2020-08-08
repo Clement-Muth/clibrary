@@ -6,36 +6,22 @@
 ##
 
 C = gcc
-CFLAGS = -Wall -Werror -Wextra -std=c11 -g -fsanitize=address -DDEBUG
-LDFLAGS =  -fsanitize=address -Iincludes/
+CFLAGS = -Wall -Werror -Wextra -std=c11 -g -DDEBUG
+LDFLAGS =  -Iincludes/ -L./bin/ -lconsole -L./bin/ -ltypes utils/*.c
+LBLIBS = -L./bin/ -lconsole -L./bin/ -ltypes
 
-SRC = 	print/init_print.c \
-		print/print.c \
-		print/warn.c \
-		print/error.c \
-		print/log.c \
-		print/color.c \
-		utils/strlen.c \
-		utils/strdup.c \
-		utils/memcpy.c \
-		utils/strcat.c \
-		assert/assert_fail.c \
-		stringify/init_string.c \
-		stringify/main.c \
-		stringify/concat.c \
-		stringify/replace.c \
-		stringify/slice.c \
-		stringify/substr.c \
-		stringify/index_of.c \
-		stringify/last_index_of.c \
-		stringify/match.c
+SRC = 	test.c
 OBJ = $(SRC:.c=.o)
 EXEC = test
 
 all: $(EXEC)
 
-$(EXEC): $(OBJ)
+$(EXEC): lib $(OBJ)
 	$(C) $(LDFLAGS) -o $@ $(OBJ) $(LBLIBS)
+
+lib:
+	$(MAKE) -C types/
+	$(MAKE) -C print/
 
 clean:
 	rm -rf $(OBJ) $(EXEC)

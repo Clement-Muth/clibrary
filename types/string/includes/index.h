@@ -5,15 +5,15 @@
 ** index
 */
 
-#ifndef PRINT_INDEX_H_
-#define PRINT_INDEX_H_
+#ifndef STRINGIFY_INDEX_H_
+#define STRINGIFY_INDEX_H_
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 
-#include "../../includes/index.h"
+#include "../../../includes/header.h"
 #include "./structs.h"
 #include "./functions.h"
 
-#endif /* !PRINT_INDEX_H_ */
+#endif /* !STRINGIFY_INDEX_H_ */

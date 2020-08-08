@@ -7,9 +7,9 @@
 
 #include "../includes/index.h"
 
-print_t init_print()
+console init_console()
 {
-    print_t print;
+    console print;
 
     print.warn = warn;
     print.logger = logger;
