@@ -7,39 +7,27 @@
 
 #include "includes/index.h"
 
-static void warn_string(const void *data)
+static int write_warn_string(const char *message)
 {
-    const string new_data = *((string *)data);
+    print_color("warning ", "\033[1;33m", STAND_OUTPUT);
+    for (int i = 0; message[i]; i++)
+        print(message[i], STAND_OUTPUT);
+    return my_strlen(message);
 }
-
-static void warn_number(const void *data)
-{
-    const number new_data = *((number *)data);
-}
-
-static void (*printing_fct[])(const void *data) =
-{
-    warn_string,
-    warn_number
-};
 
 void warn(const void *data)
 {
-    array_s type = create_array_s((const char **){"string", "number"});
+    array_s type = create_array_s((const char *[]){"string", "number", '\0'});
 
     if (!((string *)data)->type && !((number *)data)->type)
         return;
-    for (int i = 0; type.string[i].value; i++)
-        printf("%s\n", type.string[i].value);
-        
-    // if (my_strcmp(((string *)data)->type, "string") == 0)
-    //     printf("Its a string\n");
+    if (my_strcmp(((string *)data)->type, "string") == 0)
+        write_warn_string(((string *)data)->value);
     // if (my_strcmp(((number *)data)->type, "number") == 0)
-    //     printf("Its a number\n");
-
-    // printf("%s\n", ((number *)data)->type);
-    // print_color("warning ", "\033[1;33m", STAND_OUTPUT);
-    // for (int i = 0; ((char *)data)[i]; i++)
-    //     print(((char *)data)[i], STAND_OUTPUT);
-    // return my_strlen(data);
+    //     write_warn_number(((number *)data)->value);
+    if (my_strcmp(((array_s *)data)->type, "array_s") == 0)
+        foreach(message, ((array_s *)data), {
+            write_warn_string(message);
+            print('\n', 2);
+        });
 }

@@ -11,8 +11,9 @@ int main(void)
 {
     console console = init_console();
     // string string = create_string("bonjour");
-    number number = create_number(5);
+    // number number = create_number(5);
+    array_s type = create_array_s((const char *[]){"string", "number", '\0'});
 
-    console.warn(&number);
+    console.warn(&type);
     return 0;
 }
