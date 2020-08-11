@@ -14,6 +14,7 @@
 
 #include "../../../../includes/header.h"
 #include "structs.h"
+#include "macro.h"
 #include "functions.h"
 
 #endif /* !ARRAY_S_INDEX_H_ */

@@ -7,12 +7,7 @@
 
 #include "includes/index.h"
 
-bool match(const char *regex)
+bool match(const string string, const char *regex)
 {
-    // print print = ;
-
-    if (!regex) return true;
-    //     print
-    // }
-    return false;
+    return (!my_strcmp(string.value, regex)) ? true : false;
 }

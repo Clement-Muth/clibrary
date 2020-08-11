@@ -26,8 +26,8 @@ void warn(const void *data)
     // if (my_strcmp(((number *)data)->type, "number") == 0)
     //     write_warn_number(((number *)data)->value);
     if (my_strcmp(((array_s *)data)->type, "array_s") == 0)
-        foreach(message, ((array_s *)data), {
-            write_warn_string(message);
+        ((array_s *)data)->foreach(E(message, ((array_s*)data), i, {
+            write_warn_string(message.value);
             print('\n', 2);
-        });
+        }));
 }

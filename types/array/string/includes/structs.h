@@ -10,9 +10,19 @@
 
 typedef struct array_s
 {
-    string *string;
+    struct string *string;
     char *type;
-    int element;
+    int length;
+    /**
+     * Returns array after performing.
+     * @param e Macro E
+     */
+    void (*foreach)(const struct array_s *e);
+    /**
+     * Returns finded string or NULL.
+     * @param e Macro E
+     */
+    struct string (*find)(const struct array_s e);
 } array_s;
 
 #endif /* !ARRAY_S_STRUCT_H_ */

@@ -6,7 +6,7 @@
 ##
 
 C = gcc
-CFLAGS = -Wall -Werror -Wextra -std=c11 -g -DDEBUG
+CFLAGS = -Wall -Wextra -std=c11 -g -DDEBUG
 LDFLAGS =  -Iincludes/ -L./bin/ -lconsole -L./bin/ -ltypes utils/*.c
 LBLIBS = -L./bin/ -lconsole -L./bin/ -ltypes
 

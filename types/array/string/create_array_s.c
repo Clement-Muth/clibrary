@@ -32,7 +32,9 @@ array_s create_array_s(const char **values)
 
     array.string = malloc(sizeof(char *) * (nbr_of_element));
     array.string = values_array;
-    array.element = nbr_of_element;
+    array.length = nbr_of_element - 1;
+    array.foreach = foreach;
+    array.find = find;
     array.type = "array_s";
     return (array);
 }

@@ -16,7 +16,7 @@ typedef struct string
     void (*replace)(struct string *string, const char *search_value,
         const char *replace_value);
     char *(*slice)(const char *start, const char *end);
-    bool (*match)(const char *matcher);
+    bool (*match)(const struct string string, const char *matcher);
     int (*index_of)(const char *search_string, int position);
     int (*last_index_of)(const char *search_string, int position);
     char *(*substr)(int from, int length);

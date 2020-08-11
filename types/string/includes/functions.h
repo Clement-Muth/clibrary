@@ -36,7 +36,7 @@ void replace(string *string, const char *search_value, const char *replace_value
  * containing the results of that search, or null if no matches are found.
  * @param matcher A string that supports being matched against.
  */
-bool match(const char *regex);
+bool match(const string string, const char *regex);
 
 /**
  * Returns the position of the first occurrence of a substring.
