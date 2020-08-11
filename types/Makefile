@@ -16,7 +16,8 @@ LIB 				= libtypes.a
 
 ## ==============================SOURCE ARRAY================================== ##
 PATH_ARRAY			=	array/
-SRC_ARRAY			=	string/create_array_s.c
+SRC_ARRAY			=	string/create_array_s.c \
+						string/push.c
 
 ## ==============================SOURCE NUMBER================================== ##
 PATH_NUMBER			=	number/

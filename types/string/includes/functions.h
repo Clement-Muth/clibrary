@@ -12,7 +12,7 @@
  * Returns a struct that contains the string object.
  * @param value The value of the string
  */
-string create_string(const char *value);
+string new_string(const char *value);
 
 /**
  * Returns a string that contains the concatenation of two or more strings.

@@ -9,11 +9,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-string create_string(const char *value)
+string new_string(const char *value)
 {
     string string;
 
-    // my_assert(value);
     string.concat = concat;
     string.index_of = index_of;
     string.last_index_of = last_index_of;

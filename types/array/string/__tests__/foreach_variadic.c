@@ -11,14 +11,6 @@
     for (int i = 0; i < arr_length; i++) action(arr[i]);\
 })
 
-/*
- * we need a comma at the start for ##_VA_ARGS__ to consume then
- * the arguments are pushed out in such a way that 'cnt' ends up with
- * the right count.  
- */
-#define _N__ARG(...) _N__ARGS(,##__VA_ARGS__,6,5,4,3,2,1,0)
-#define _N__ARGS(z,a,b,c,d,e,f,cnt,...) cnt
-
 /**
  * Performs the specified action for each element in an array.
  * @param item Variable coontaining each cases.

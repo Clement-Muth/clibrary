@@ -31,9 +31,17 @@ static inline void foreach(__attribute__((unused)) const array_s *e)
  * If such an element is found, find immediately returns that element value.
  * Otherwise, find returns undefined.
  */
-static inline string find(__attribute__((unused)) const array_s e)
+static inline void find(__attribute__((unused)) const array_s e)
 {
     return;
 }
+
+/**
+ * Appends new elements to an array, and returns the new length of the array.
+ * @param array Array destination.
+ * @param item New element of the Array.
+ * @param index? Index where the element must be appened.
+ */
+number push(array_s *array, const void *item, ...);
 
 #endif /* !ARRAY_S_FUNCTION_H_ */

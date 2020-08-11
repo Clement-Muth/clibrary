@@ -28,5 +28,24 @@
     arr;\
 })
 
+#define _FINDNF(item, arr, index, arr_length, prediction, func) ({\
+    array_s (*action)(string item, int index) = func;\
+    for (int i = 0; i < arr_length; i++)\
+        if (arr.string[i].match(arr.string[i], prediction)) action(arr.string[i], i);\
+})
+
+/**
+ * Performs the specified action for each element in an array.
+ * @param item Variable coontaining each cases.
+ * @param *arr Array to perform action.
+ * @param index Index in the array.
+ * @param prediction Block that contains the prediction.
+ * @param body Action for finded element.
+ */
+#define F(item, arr, index, prediction, body) ({\
+    _FINDNF(item, arr, index, 2, prediction,\
+    _LAMBDA(array_s, (string item, int index) body));\
+    arr;\
+})
 
 #endif /* !ARRAY_S_MACRO_H_ */

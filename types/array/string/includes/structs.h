@@ -22,7 +22,7 @@ typedef struct array_s
      * Returns finded string or NULL.
      * @param e Macro E
      */
-    struct string (*find)(const struct array_s e);
+    void (*find)(const struct array_s e);
 } array_s;
 
 #endif /* !ARRAY_S_STRUCT_H_ */
