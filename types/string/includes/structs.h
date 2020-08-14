@@ -14,7 +14,7 @@ typedef struct string
     size_t length;
     struct string (*concat)(struct string *string, const char *src);
     void (*replace)(struct string *string, const char *search_value,
-        const char *replace_value);
+                    const char *replace_value);
     char *(*slice)(const char *start, const char *end);
     bool (*match)(const struct string string, const char *matcher);
     int (*index_of)(const char *search_string, int position);

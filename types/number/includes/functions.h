@@ -12,6 +12,6 @@
  * Returns a struct that contains the number object.
  * @param value The value of the number
  */
-number create_number(const int value);
+number new_number(const int value);
 
 #endif /* !NUMBER_FUNCTION_H_ */

@@ -8,16 +8,16 @@
 #include "includes/index.h"
 #include <stdarg.h>
 
-static number push_chaine(void *src)
+static number push_chaine(const void *src)
 {
-    
 }
 
-static number push_string(void *src)
+static number push_string(const void *src)
 {
-    string message = new_string(((string *)src)->value);
+    const string copy_src = *((string *)src);
+    // const array_s new_array = new_string_a(
 
-    
+    // );
 }
 
 number push(array_s *array, const void *item, ...)
@@ -25,10 +25,5 @@ number push(array_s *array, const void *item, ...)
     const bool type = GET({
         return (!((string *)item)->value) ? true : false;
     });
-    number (*push_fct[])(void *item) = {
-        push_string,
-        push_chaine
-    };
-
-    return (push_fct[(type) ? 1 : 2]);
+    number(*push_fct[(type) ? 0 : 1]);
 }

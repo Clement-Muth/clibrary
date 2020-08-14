@@ -11,11 +11,11 @@
 
 size_t my_strlen(const char *string)
 {
-    char error[] = "strlen.c: string can't be undefined\n";
     int i = 0;
+    const console console = init_console();
 
     if (!string) {
-        write(ERR_OUTPUT, error, my_strlen(error));
+        my_assert(string == NULL);
         return (false);
     }
     for (i = 0; string[i]; i++);

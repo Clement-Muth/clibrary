@@ -17,7 +17,7 @@ static int write_warn_string(const char *message)
 
 void warn(const void *data)
 {
-    array_s type = create_array_s((const char *[]){"string", "number", '\0'});
+    array_s type = new_string_a((const char *[]){"string", "number", '\0'});
 
     if (!((string *)data)->type && !((number *)data)->type)
         return;

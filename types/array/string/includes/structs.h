@@ -23,6 +23,18 @@ typedef struct array_s
      * @param e Macro E
      */
     void (*find)(const struct array_s e);
+    /**
+     * Appends new elements to an array, and returns the new length of the array
+     * @param array Array destination.
+     * @param item New element of the Array.
+     * @param index? Index where the element must be appened.
+     */
+    struct number (*push)(struct array_s *array, const void *item, ...);
+    /**
+     * Returns a copy of an array as char **.
+     * @param array Array to copy.
+     */
+    char **(*copy)(const struct array_s *array);
 } array_s;
 
 #endif /* !ARRAY_S_STRUCT_H_ */

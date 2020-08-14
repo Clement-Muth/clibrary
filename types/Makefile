@@ -16,17 +16,18 @@ LIB 				= libtypes.a
 
 ## ==============================SOURCE ARRAY================================== ##
 PATH_ARRAY			=	array/
-SRC_ARRAY			=	string/create_array_s.c \
-						string/push.c
+SRC_ARRAY			=	string/new_string_a.c \
+						string/push.c \
+						string/copy.c
 
 ## ==============================SOURCE NUMBER================================== ##
 PATH_NUMBER			=	number/
-SRC_NUMBER			=	create_number.c
+SRC_NUMBER			=	new_number.c
 
 ## ==============================SOURCE STRING================================== ##
 PATH_STRING			=	string/
 SRC_STRING			=	concat.c \
-						create_string.c \
+						new_string.c \
 						index_of.c \
 						last_index_of.c \
 						match.c \

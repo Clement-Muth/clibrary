@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-number create_number(const int value)
+number new_number(const int value)
 {
     number number;
 

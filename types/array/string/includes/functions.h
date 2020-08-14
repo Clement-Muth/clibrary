@@ -12,7 +12,7 @@
  * Returns a struct that contains the number object.
  * @param values The values of the array
  */
-array_s create_array_s(const char **values);
+array_s new_string_a(const char **values);
 
 /**
  * Returns array after performing.
@@ -42,6 +42,12 @@ static inline void find(__attribute__((unused)) const array_s e)
  * @param item New element of the Array.
  * @param index? Index where the element must be appened.
  */
-number push(array_s *array, const void *item, ...);
+struct number push(array_s *array, const void *item, ...);
+
+/**
+ * Returns a copy of an array as char **.
+ * @param array Array to copy.
+ */
+char **copy(const array_s *array);
 
 #endif /* !ARRAY_S_FUNCTION_H_ */

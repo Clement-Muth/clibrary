@@ -1,5 +1,12 @@
 /*
 ** EPITECH PROJECT, 2020
+** clibrary [WSL: Debian]
+** File description:
+** assert_fail
+*/
+
+/*
+** EPITECH PROJECT, 2020
 ** library [WSL: Debian]
 ** File description:
 ** assert_fail
@@ -10,16 +17,15 @@
 #include <stdlib.h>
 
 int my_assert_fail(__attribute__((unused)) const char *assertion,
-__attribute__((unused)) const char *file, __attribute__((unused)) unsigned line
-, __attribute__((unused)) const char *function)
+                        const char *file, const int line, const char *func)
 {
     #ifdef DEBUG
-        printf("%s: %s:%d: %s '%s' failed\n", file, function, line,
+        printf("%s: %s:%d: %s '%s' failed\n", file, func, line,
             "Assertion", assertion);
         exit(84);
     #else
-        print_t print = init_print();
-        print.error("An error occured - Please try again\n");
+        console console = init_console();
+        console.error("An error occured - Please try again\n");
     #endif
     return (-1);
 }

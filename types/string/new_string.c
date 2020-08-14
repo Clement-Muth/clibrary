@@ -22,7 +22,6 @@ string new_string(const char *value)
     string.length = my_strlen(value);
     string.value = my_strdup((char *)value);
     string.type = "string";
-
     string.self = &string;
     string.self->value = string.value;
     string.self->type = string.type;

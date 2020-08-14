@@ -9,7 +9,9 @@
 
 ssize_t error(const char *error)
 {
-    print_color("error ", "\033[1;31m", ERR_OUTPUT);
+    print('[', 2);
+    print_color("ERROR ", "\033[1;31m", ERR_OUTPUT);
+    print(']', 2);
     for (int i = 0; error[i]; i++)
         print(error[i], ERR_OUTPUT);
     return my_strlen(error);
