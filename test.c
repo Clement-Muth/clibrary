@@ -6,6 +6,7 @@
 */
 
 #include "includes/index.h"
+#include "print/includes/functions_pointer.h"
 #include <stdarg.h>
 
 #define push_chaine(...)                                                   \
@@ -23,32 +24,33 @@ static number(push_chaine)(console console, array_s *array, const void *src,
     array_s new_array;
     string error;
 
-    if (tmp_array) {
-        my_assert_dev(tmp_array == NULL, DESC_ERR_ALLOC_FAILED, ERR_ALC84,
+    if (!tmp_array) {
+        my_assert_dev(tmp_array != NULL, DESC_ERR_ALLOC_FAILED, ERR_ALC84,
         FAIL_EXEC);
-        return (new_number(-1));
+        my_strlen(NULL);
+        return (new_number(0));
     }
-    // array->length = array->length + 1;
-    // array->foreach(E(el, array, index, {
-    //     if (i == index)
-    //         tmp_array[index] = my_strdup((const char *)src);
-    //     else
-    //         tmp_array[index] = my_strdup(el.value);
-    // }));
-    // tmp_array[length] = NULL;
-    // new_array = new_string_a((const char **)tmp_array);
+    array->length = array->length + 1;
+    array->foreach(E(el, array, index, {
+        if (i == index)
+            tmp_array[index] = my_strdup((const char *)src);
+        else
+            tmp_array[index] = my_strdup(el.value);
+    }));
+    tmp_array[length] = NULL;
+    new_array = new_string_a((const char **)tmp_array);
     return (new_number(new_array.length));
 }
 
 static number(push_string)(console console, array_s *array, const void *src,
                            const int i)
 {
-    // const string copy_src = *((string *)src);
-    // const char **copy_array = (const char **)array->copy(array);
-    // array_s new_array = new_string_a((const char *[]){
-    //     copy_array, (const char *)src});
+    const string copy_src = *((string *)src);
+    const char **copy_array = (const char **)array->copy(array);
+    array_s new_array = new_string_a((const char *[]){
+        copy_array, (const char *)src});
 
-    // return (new_number(new_array.length));
+    return (new_number(new_array.length));
 }
 
 number push(array_s *array, const void *item, ...)

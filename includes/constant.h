@@ -12,4 +12,6 @@
 #define STAND_OUTPUT 1
 #define EXIT_ERROR -1
 
+#define UNDEFINED "undefined"
+
 #endif /* !CONSTANT_H_ */

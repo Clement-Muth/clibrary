@@ -10,7 +10,8 @@
 LIB	=	libassert.a
 
 SRC	=	assert_fail.c \
-		assert_fail_dev.c
+		assert_fail_dev.c \
+		assert_warn_fail_dev.c
 
 CFLAGS	=	-Wall -I./include -DDEBUG
 

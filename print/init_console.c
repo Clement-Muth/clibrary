@@ -6,6 +6,7 @@
 */
 
 #include "../includes/index.h"
+#include "includes/functions_pointer.h"
 
 console init_console()
 {

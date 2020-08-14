@@ -32,6 +32,11 @@ SRC_STRING			=	concat.c \
 						last_index_of.c \
 						match.c \
 						replace.c \
+							utils/replace/copy_current_and_after.c \
+							utils/replace/error.c \
+							utils/replace/replace_create_copy.c \
+							utils/replace/replacing.c \
+							utils/replace/search_position.c \
 						substr.c
 
 SRC					=	$(addprefix $(PATH_ARRAY), $(SRC_ARRAY)) \

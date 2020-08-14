@@ -12,10 +12,10 @@
 size_t my_strlen(const char *string)
 {
     int i = 0;
-    const console console = init_console();
 
     if (!string) {
-        my_assert(string == NULL);
+        my_assert_dev(string != NULL, DESC_ERR_STRLEN_UNDEFINED, ERR_TYPE,
+        FAIL_EXEC);
         return (false);
     }
     for (i = 0; string[i]; i++);

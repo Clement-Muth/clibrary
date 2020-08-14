@@ -33,6 +33,10 @@ array_s new_string_a(const char **values)
     array_s array;
 
     array.string = malloc(sizeof(char *) * (nbr_of_element));
+    if (!array.string) {
+        my_assert_dev(array.string != NULL, DESC_ERR_ALLOC_FAILED, ERR_ALC84,
+        FAIL_EXEC);
+    }
     array.string = values_array;
     array.length = nbr_of_element - 1;
     array.foreach = foreach;

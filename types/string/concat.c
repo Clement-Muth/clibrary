@@ -11,20 +11,25 @@
 
 string concat(string *string, const char *src)
 {
-  int i = 0;
-  int j = 0;
-  int cont = 0;
-  int h = my_strlen(string->value) + my_strlen(src) + 1;
-  char *result = (char*)malloc(h * sizeof(char));
+    vect2i inc = {0, 0};
+    int cont = 0;
+    int h = my_strlen(string->value) + my_strlen(src) + 1;
+    char *result = (char*)malloc(h * sizeof(char));
 
-  for(i = 0; i < (int)my_strlen(string->value); i++)
-    result[i] = string->value[i];
-  for(j = i; j < (int)(my_strlen(src) + my_strlen(string->value)); j++)
-    result[j] = src[cont++];
-  result[h - 1] = '\0';
-  string->value = result;
-  string->length = my_strlen(string->value);
-  string->self->value = string->value;
-  string->self->type = string->type;
-  return (*string);
+    if (src == NULL) {
+        my_assert_dev(src != NULL, DESC_ERR_CONCAT_UNDEFINED, ERR_TYPE,
+        FAIL_EXEC);
+        return (*string);
+    }
+    for(inc.x = 0; inc.x < (int)my_strlen(string->value); inc.x++)
+        result[inc.x] = string->value[inc.x];
+    for(inc.y = inc.x; inc.y < (int)(my_strlen(src) + my_strlen(string->value));
+        inc.y++)
+        result[inc.y] = src[cont++];
+    result[h - 1] = '\0';
+    string->value = result;
+    string->length = my_strlen(string->value);
+    string->self->value = string->value;
+    string->self->type = string->type;
+    return (*string);
 }

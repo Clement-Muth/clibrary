@@ -64,4 +64,7 @@ int last_index_of(const char *search_string, int position);
  */
 char *substr(int from, int length);
 
+char **replace_create_copy(string *string, char **copy, vect2i position, int i);
+char *replacing(string *string, char **copy, const char *replace_value);
+
 #endif /* !STRINGIFY_FUNCTION_H_ */
