@@ -12,8 +12,9 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#include "../../../includes/header.h"
-#include "./structs.h"
-#include "./functions.h"
+#include "../../../includes/index.h"
+#include "structs.h"
+#include "functions.h"
+#include "macro.h"
 
 #endif /* !STRINGIFY_INDEX_H_ */

@@ -11,7 +11,7 @@
 /**
  * Returns initilised console struct.
  */
-console init_console();
+console_t init_console();
 
 /**
  * Write a letter to the console.

@@ -17,12 +17,10 @@ static int write_warn_string(const char *message)
 
 void warn(const void *data)
 {
-    array_s type = new_string_a((const char *[]){"string", "number", '\0'});
-
-    if (!((string *)data)->type && !((number *)data)->type)
+    if (!((string_t *)data)->type && !((number *)data)->type)
         return;
-    if (my_strcmp(((string *)data)->type, "string") == 0)
-        write_warn_string(((string *)data)->value);
+    if (my_strcmp(((string_t *)data)->type, "string") == 0)
+        write_warn_string(((string_t *)data)->value);
     // if (my_strcmp(((number *)data)->type, "number") == 0)
     //     write_warn_number(((number *)data)->value);
     if (my_strcmp(((array_s *)data)->type, "array_s") == 0)

@@ -9,17 +9,11 @@
 #define STRINGIFY_FUNCTION_H_
 
 /**
- * Returns a struct that contains the string object.
- * @param value The value of the string
- */
-string new_string(const char *value);
-
-/**
  * Returns a string that contains the concatenation of two or more strings.
  * @param dest The destination of concat
  * @param src The strings to append to the end of the string.
  */
-string concat(string *string, const char *src);
+string_t concat(string_t *this, const char *src);
 
 /**
  * Replaces text in a string, using a regular expression or search string.
@@ -28,7 +22,7 @@ string concat(string *string, const char *src);
  * @param replace_value A string containing the text to replace for every
  * successful match of searchValue in this string.
  */
-void replace(string *string, const char *search_value,
+void replace(string_t *this, const char *search_value,
              const char *replace_value);
 
 /**
@@ -37,7 +31,7 @@ void replace(string *string, const char *search_value,
  * containing the results of that search, or null if no matches are found.
  * @param matcher A string that supports being matched against.
  */
-bool match(const string string, const char *regex);
+bool match(const string_t this, const char *regex);
 
 /**
  * Returns the position of the first occurrence of a substring.
@@ -63,8 +57,5 @@ int last_index_of(const char *search_string, int position);
  * @param length The number of characters to include in the returned substring.
  */
 char *substr(int from, int length);
-
-char **replace_create_copy(string *string, char **copy, vect2i position, int i);
-char *replacing(string *string, char **copy, const char *replace_value);
 
 #endif /* !STRINGIFY_FUNCTION_H_ */

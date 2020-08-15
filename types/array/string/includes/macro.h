@@ -8,11 +8,8 @@
 #ifndef ARRAY_S_MACRO_H_
 #define ARRAY_S_MACRO_H_
 
-#define _LAMBDA(return_type, function_body) \
-    ({ return_type __fn__ function_body __fn__; })
-
 #define _FOREACHNF(item, index, arr, arr_length, func) ({ \
-    void (*action)(string item, int index) = func;     \
+    void (*action)(string_t item, int index) = func;     \
     for (int i = 0; i <= arr_length; i++)                 \
         action((*arr).string[i], i);                      \
 })
@@ -26,12 +23,12 @@
  */
 #define E(item, arr, index, body) ({                         \
     _FOREACHNF(item, index, arr, arr->length,                \
-               _LAMBDA(void, (string item, int index)body)); \
+               _LAMBDA(void, (string_t item, int index)body)); \
     arr;                                                     \
 })
 
 #define _FINDNF(item, arr, index, arr_length, prediction, func) ({ \
-    array_s (*action)(string item, int index) = func;              \
+    array_s (*action)(string_t item, int index) = func;              \
     for (int i = 0; i < arr_length; i++)                           \
         if (arr.string[i].match(arr.string[i], prediction))        \
             action(arr.string[i], i);                              \
@@ -47,7 +44,7 @@
  */
 #define F(item, arr, index, prediction, body) ({             \
     _FINDNF(item, arr, index, 2, prediction,                 \
-            _LAMBDA(array_s, (string item, int index)body)); \
+            _LAMBDA(array_s, (string_t item, int index)body)); \
     arr;                                                     \
 })
 

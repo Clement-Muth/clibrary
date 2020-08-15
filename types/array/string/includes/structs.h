@@ -10,7 +10,7 @@
 
 typedef struct array_s
 {
-    struct string *string;
+    struct string_s *string;
     char *type;
     int length;
     /**

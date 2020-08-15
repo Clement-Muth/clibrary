@@ -13,6 +13,6 @@ typedef struct console_s
     void (*warn)(const void *data);
     ssize_t (*logger)(const char *message);
     ssize_t (*error)(const char *error);
-} console;
+} console_t;
 
 #endif /* !PRINT_STRUCTS_H_ */

@@ -25,24 +25,23 @@ static char *error_underline(int length)
 }
 
 int (my_assert_warn_fail_dev)(__attribute__((unused)) const char *assertion,
-                        global_info infos, ...)
+                        global_info infos, int n_arg, ...)
 {
-    va_list internal_info_errors;
+    va_list err_l;
 
-    va_start(internal_info_errors, infos);
+    va_start(err_l, n_arg);
     #ifdef DEBUG
         printf("[%sWARNING%s] %s%s%s x %s\n\
         \r%s%s%s:%s%s%s:%s%d%s - %swarning%s %s%s%s %s\n\n\
         \r%s%d%s\t%s\n\
-        \r%s  %s\t%s^%s%s\n", YELLOW, RES, GREY, infos.time,
-        RES, va_arg(internal_info_errors, char *), CYAN,
-        realpath(infos.file, NULL), RES, CYAN, infos.func, RES, YELLOW,
-        infos.line, RES, YELLOW, RES, GREY, va_arg(internal_info_errors, char *)
-        , RES, va_arg(internal_info_errors, char *), GREY_WHITE, infos.line, RES
-        , assertion, GREY_WHITE, RES, YELLOW,
-        error_underline(my_strlen(assertion)), RES);
-    #else
-        write(2, "An error occured. Aborted.", 27);
+        \r%s  %s\t%s^%s%s\n", YELLOW, RES, GREY, (8 == n_arg) ?
+        va_arg(err_l, char *) : infos.time, RES, va_arg(err_l, char *), CYAN,
+        realpath((8 == n_arg) ? va_arg(err_l, char *) : infos.file, NULL),
+        RES, CYAN, (8 == n_arg) ? va_arg(err_l, char *) : infos.func, RES,
+        YELLOW, (8 == n_arg) ? va_arg(err_l, int) : infos.line, RES, YELLOW,
+        RES, GREY, va_arg(err_l, char *), RES, va_arg(err_l, char *), GREY_WHITE
+        , (8 == n_arg) ? va_arg(err_l, int) : infos.line, RES, assertion,
+        GREY_WHITE, RES, YELLOW, error_underline(my_strlen(assertion)), RES);
     #endif
     return (-1);
 }

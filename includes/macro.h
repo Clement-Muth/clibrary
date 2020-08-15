@@ -13,8 +13,11 @@
  * the arguments are pushed out in such a way that 'cnt' ends up with
  * the right count.  
  */
-#define _N__ARG(...) _N__ARGS(, ##__VA_ARGS__, 6, 5, 4, 3, 2, 1, 0)
-#define _N__ARGS(z, a, b, c, d, e, f, cnt, ...) cnt
+#define _N__ARG(...) _N__ARGS(, ##__VA_ARGS__, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0)
+#define _N__ARGS(z, a, b, c, d, e, f, g, h, i, cnt, ...) cnt
+
+#define _LAMBDA(return_type, function_body) \
+    ({ return_type __fn__ function_body __fn__; })
 
 #define GET(body, ...) ({                                           \
     int (*action)(int n_arg, ...) =                                 \

@@ -27,7 +27,7 @@ static bool second_error(char *copy)
     return (true);
 }
 
-char **copy_current_and_after(string *string, char **copy,
+char **copy_current_and_after(string_t *this, char **copy,
                               vect2i position, int i)
 {
     copy[1] = malloc(position.y - position.x + 3);
@@ -35,16 +35,16 @@ char **copy_current_and_after(string *string, char **copy,
         return (NULL);
     i = position.x;
     for (int n = 0; i <= position.y; i++, n++)
-        copy[1][n] = string->value[i];
+        copy[1][n] = this->value[i];
     copy[1][position.y - position.x] = '\0';
-    copy[2] = malloc(string->length - position.y + 1);
+    copy[2] = malloc(this->length - position.y + 1);
     if (second_error(copy[2]))
         return (NULL);
-    if ((int)string->length != position.y) {
+    if ((int)this->length != position.y) {
         i = position.y;
-        for (int n = 0; i <= (int)string->length; i++, n++)
-            copy[2][n] = string->value[i];
-        copy[2][string->length - position.y] = '\0';
+        for (int n = 0; i <= (int)this->length; i++, n++)
+            copy[2][n] = this->value[i];
+        copy[2][this->length - position.y] = '\0';
     } else
         copy[2][0] = '\0';
     return (copy);

@@ -16,10 +16,10 @@ static int number_of_element(const char **values)
     return (i);
 }
 
-static string *create_string_values_array(const char **values,
+static string_t *create_string_values_array(const char **values,
                                           const int nbr_of_element)
 {
-    string *array = malloc(sizeof(string) * (nbr_of_element));
+    string_t *array = malloc(sizeof(string_t) * (nbr_of_element));
 
     for (int i = 0; i != nbr_of_element; i++)
         array[i] = new_string(values[i]);
@@ -29,7 +29,7 @@ static string *create_string_values_array(const char **values,
 array_s new_string_a(const char **values)
 {
     const int nbr_of_element = number_of_element(values);
-    string *values_array = create_string_values_array(values, nbr_of_element);
+    string_t *values_array = create_string_values_array(values, nbr_of_element);
     array_s array;
 
     array.string = malloc(sizeof(char *) * (nbr_of_element));

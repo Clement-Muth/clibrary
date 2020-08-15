@@ -8,9 +8,9 @@
 #include "../includes/index.h"
 #include "includes/functions_pointer.h"
 
-console init_console()
+console_t init_console()
 {
-    console print;
+    console_t print;
 
     print.warn = warn;
     print.logger = logger;

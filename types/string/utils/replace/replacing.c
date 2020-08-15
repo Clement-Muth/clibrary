@@ -7,8 +7,8 @@
 
 #include "../../includes/index.h"
 
-char *replacing(string *string, char **copy, const char *replace_value)
+char *replacing(string_t *this, char **copy, const char *replace_value)
 {
-    return (string->value = my_strcat(copy[0],
+    return (this->value = my_strcat(copy[0],
         my_strcat((char *)replace_value, copy[2])));
 }

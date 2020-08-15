@@ -7,7 +7,7 @@
 
 #include "../../includes/index.h"
 
-bool error(const char *search_value, const char *replace_value)
+bool replace_error(const char *search_value, const char *replace_value)
 {
     if (!search_value || !replace_value) {
         my_assert_warn_dev(search_value != NULL,

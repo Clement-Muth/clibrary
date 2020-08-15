@@ -6,7 +6,7 @@
 ##
 
 GCC =	gcc
-CFLAGS =	-Wall -Wextra -std=c11 -g -DDEBUG
+CFLAGS =	-Wall -Wextra -std=c99 -g -DDEBUG
 LDFLAGS =	-Iincludes/ -L./bin/ -lconsole -L./bin/ -ltypes utils/*.c
 LBLIBS =	-L./bin/ -lconsole -L./bin/ -ltypes -L./bin/ -lassert
 
@@ -29,6 +29,9 @@ clean:
 
 fclean:	clean
 	rm -rf $(EXEC)
+	$(MAKE) -C types/ fclean
+	$(MAKE) -C print/ fclean
+	$(MAKE) -C assert/ fclean
 
 re:	fclean all
 

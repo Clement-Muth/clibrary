@@ -8,20 +8,27 @@
 #ifndef STRINGIFY_STRUCT_H_
 #define STRINGIFY_STRUCT_H_
 
-typedef struct string
+typedef struct string_s
 {
     char *value;
     size_t length;
-    struct string (*concat)(struct string *string, const char *src);
-    void (*replace)(struct string *string, const char *search_value,
+    struct string_s (*concat)(struct string_s *string, const char *src);
+    void (*replace)(struct string_s *string, const char *search_value,
                     const char *replace_value);
     char *(*slice)(const char *start, const char *end);
-    bool (*match)(const struct string string, const char *matcher);
+    bool (*match)(const struct string_s string, const char *matcher);
     int (*index_of)(const char *search_string, int position);
     int (*last_index_of)(const char *search_string, int position);
     char *(*substr)(int from, int length);
     char *type;
-    struct string *self;
-} string;
+} string_t;
+
+typedef struct assert_info_s
+{
+    char *file;
+    char *time;
+    const char *function;
+    int line;
+} assert_info_t;
 
 #endif /* !STRINGIFY_STRUCT_H_ */

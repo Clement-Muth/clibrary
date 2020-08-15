@@ -7,13 +7,13 @@
 
 #include "../../includes/index.h"
 
-vect2i search_position(string *string, const char *search_value)
+vect2i search_position(string_t *this, const char *search_value)
 {
     vect2i position = {0, 0};
     int n = 0;
 
-    for (int i = 0; search_value[n] && string->value[i]; i++) {
-        if (string->value[i] != search_value[n]) {
+    for (int i = 0; search_value[n] && this->value[i]; i++) {
+        if (this->value[i] != search_value[n]) {
             n = 0;
             position.y = 0;
             continue;

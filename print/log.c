@@ -11,5 +11,6 @@ ssize_t logger(const char *message)
 {
     for (int i = 0; message[i]; i++)
         print(message[i], STAND_OUTPUT);
+    print('\n', 1);
     return (my_strlen(message));
 }

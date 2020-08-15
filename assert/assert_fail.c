@@ -23,7 +23,7 @@ int my_assert_fail(__attribute__((unused)) const char *assertion,
         printf("%s: %s:%d: %s '%s' failed\n", file, func, line,
             "Assertion", assertion);
     #else
-        console console = init_console();
+        console_t console = init_console();
         console.error("An error occured - Please try again\n");
     #endif
     return (-1);

@@ -27,7 +27,6 @@ SRC_NUMBER			=	new_number.c
 ## ==============================SOURCE STRING================================== ##
 PATH_STRING			=	string/
 SRC_STRING			=	concat.c \
-						new_string.c \
 						index_of.c \
 						last_index_of.c \
 						match.c \
@@ -37,6 +36,7 @@ SRC_STRING			=	concat.c \
 							utils/replace/replace_create_copy.c \
 							utils/replace/replacing.c \
 							utils/replace/search_position.c \
+							utils/new_string.c \
 						substr.c
 
 SRC					=	$(addprefix $(PATH_ARRAY), $(SRC_ARRAY)) \
