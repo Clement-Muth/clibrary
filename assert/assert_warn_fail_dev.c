@@ -6,6 +6,8 @@
 */
 
 #include "includes/index.h"
+#include "includes/constant.h"
+#include "../utils/includes/index.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
@@ -24,8 +26,8 @@ static char *error_underline(int length)
     return (underline);
 }
 
-int (my_assert_warn_fail_dev)(__attribute__((unused)) const char *assertion,
-                        global_info infos, int n_arg, ...)
+int (my_assert_warn_fail_dev)(const char *assertion, global_info infos,
+                              int n_arg, ...)
 {
     va_list err_l;
 

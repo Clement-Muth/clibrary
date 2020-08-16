@@ -8,6 +8,7 @@
 #ifndef PRINT_STRUCTS_H_
 #define PRINT_STRUCTS_H_
 
+#include <stdlib.h>
 typedef struct console_s
 {
     void (*warn)(const void *data);

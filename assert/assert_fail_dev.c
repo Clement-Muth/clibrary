@@ -6,8 +6,10 @@
 */
 
 #include "includes/index.h"
-#include <stdio.h>
+#include "includes/constant.h"
+#include "../utils/includes/index.h"
 #include <stdlib.h>
+#include <stdio.h>
 #include <stdarg.h>
 
 static char *error_underline(int length)

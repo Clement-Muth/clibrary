@@ -22,6 +22,8 @@
 
 #define DESC_WARN_NEW_STRING_UNDEFINED \
                                 "Create string with property 'value' undefined"
+#define DESC_WARN_INDEX_OF_UNDEFINED \
+        "Cannot read property 'search_string' of undefined. index_of aborded."
 #define DESC_WARN_SEARCH_VALUE_UNDEFINED \
         "Cannot read property 'search_value' of undefined. Replacing aborded."
 #define DESC_WARN_REPLACE_VALUE_UNDEFINED \

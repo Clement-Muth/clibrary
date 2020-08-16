@@ -6,6 +6,9 @@
 */
 
 #include "../../includes/index.h"
+#include "../../../../utils/includes/index.h"
+#include "../../../../assert/includes/index.h"
+#include "../../../../assert/includes/constant.h"
 
 bool replace_error(const char *search_value, const char *replace_value)
 {

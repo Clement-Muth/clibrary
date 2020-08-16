@@ -5,6 +5,9 @@
 ** new_string_a
 */
 
+#include "../../../includes/constant.h"
+#include "../../string/includes/structs.h"
+#include "../../string/includes/macro.h"
 #include "includes/index.h"
 
 static int number_of_element(const char **values)

@@ -5,7 +5,7 @@
 ** init print struct
 */
 
-#include "../includes/index.h"
+#include "includes/structs.h"
 #include "includes/functions_pointer.h"
 
 console_t init_console()

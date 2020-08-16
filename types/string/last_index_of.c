@@ -6,6 +6,8 @@
 */
 
 #include "includes/index.h"
+#include "../../assert/includes/index.h"
+#include "../../assert/includes/constant.h"
 
 int last_index_of(__attribute__((unused)) const char *search_string, __attribute__((unused)) int position)
 {

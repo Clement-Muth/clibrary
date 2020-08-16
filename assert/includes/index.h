@@ -8,9 +8,7 @@
 #ifndef ASSERT_INDEX_H_
 #define ASSERT_INDEX_H_
 
-#include "../../includes/index.h"
-#include <stdlib.h>
-#include "constant.h"
+#include "../../includes/macro.h"
 
 typedef struct global_info
 {

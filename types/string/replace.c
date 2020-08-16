@@ -7,6 +7,8 @@
 
 #include "includes/index.h"
 #include "includes/utils_function.h"
+#include "../../assert/includes/index.h"
+#include "../../assert/includes/constant.h"
 
 void replace(string_t *this, const char *search_value,
             const char *replace_value)

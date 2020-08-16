@@ -6,6 +6,13 @@
 */
 
 #include "includes/index.h"
+#include "../utils/includes/index.h"
+#include "../includes/constant.h"
+#include "../types/string/includes/structs.h"
+#include "../types/number/includes/structs.h"
+#include "../types/array/string/includes/structs.h"
+#include "../types/array/string/includes/macro.h"
+#include "../includes/macro.h"
 
 static int write_warn_string(const char *message)
 {

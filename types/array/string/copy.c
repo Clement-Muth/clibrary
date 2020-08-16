@@ -5,7 +5,11 @@
 ** copy
 */
 
-#include "includes/index.h"
+#include "../../../includes/constant.h"
+#include "../../string/includes/macro.h"
+#include "../../../utils/includes/index.h"
+#include "includes/structs.h"
+#include "includes/macro.h"
 
 char **copy(const array_s *array)
 {

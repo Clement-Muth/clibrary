@@ -6,9 +6,17 @@
 */
 
 #include "includes/index.h"
+#include "../../assert/includes/index.h"
+#include "../../assert/includes/constant.h"
+#include <stdio.h>
 
-int index_of(__attribute__((unused)) const char *search_string,
-            __attribute__((unused)) int position)
+vect2i index_of(const string_t *this, const char *search_string)
 {
-    return (0);
+    if (search_string == NULL) {
+        printf("null\n");
+        my_assert_warn_dev(!search_string, DESC_WARN_INDEX_OF_UNDEFINED,
+        ERR_TYPE, FAIL_FUNC_EXEC);
+        return ((vect2i){0, 0});
+    }
+    return ((vect2i){0, 0});
 }

@@ -6,6 +6,7 @@
 */
 
 #include "../../includes/index.h"
+#include "../../../../utils/includes/index.h"
 
 char *replacing(string_t *this, char **copy, const char *replace_value)
 {

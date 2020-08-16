@@ -6,6 +6,8 @@
 */
 
 #include "includes/index.h"
+#include "../../assert/includes/index.h"
+#include "../../assert/includes/constant.h"
 
 char *substr(__attribute__((unused)) int from, __attribute__((unused)) int length)
 {

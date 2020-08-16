@@ -6,6 +6,9 @@
 */
 
 #include "includes/index.h"
+#include "../utils/includes/index.h"
+#include <stdlib.h>
+#include <unistd.h>
 
 ssize_t print_color(const char *string, const char *hex_color, int fd)
 {

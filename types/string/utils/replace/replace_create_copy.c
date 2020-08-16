@@ -6,6 +6,10 @@
 */
 
 #include "../../includes/index.h"
+#include "../../includes/utils_function.h"
+#include "../../../../utils/includes/index.h"
+#include "../../../../assert/includes/index.h"
+#include "../../../../assert/includes/constant.h"
 
 char **replace_create_copy(string_t *this, char **copy, vect2i position, int i)
 {

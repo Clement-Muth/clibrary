@@ -11,6 +11,7 @@
 #include <stdarg.h>
 #include "utils_function.h"
 #include "../../../assert/includes/constant.h"
+#include "../../../assert/includes/index.h"
 
 #ifdef GET
     #undef GET

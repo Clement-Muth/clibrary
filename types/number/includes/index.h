@@ -8,12 +8,12 @@
 #ifndef NUMBER_INDEX_H_
 #define NUMBER_INDEX_H_
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-
-#include "../../../includes/header.h"
 #include "structs.h"
-#include "functions.h"
+
+/**
+ * Returns a struct that contains the number object.
+ * @param value The value of the number
+ */
+number new_number(const int value);
 
 #endif /* !NUMBER_INDEX_H_ */

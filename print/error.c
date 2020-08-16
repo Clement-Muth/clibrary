@@ -6,6 +6,9 @@
 */
 
 #include "includes/index.h"
+#include "../includes/constant.h"
+#include "../utils/includes/index.h"
+#include <stdlib.h>
 
 ssize_t error(const char *error)
 {

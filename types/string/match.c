@@ -6,6 +6,9 @@
 */
 
 #include "includes/index.h"
+#include "../../assert/includes/index.h"
+#include "../../assert/includes/constant.h"
+#include "../../utils/includes/index.h"
 
 bool match(const string_t this, const char *regex)
 {

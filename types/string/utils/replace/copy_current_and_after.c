@@ -5,7 +5,10 @@
 ** copy_current_and_after
 */
 
-#include "../../includes/index.h"
+#include "../../includes/utils_function.h"
+#include "../../../../utils/includes/index.h"
+#include "../../../../assert/includes/index.h"
+#include "../../../../assert/includes/constant.h"
 
 static bool first_error(char *copy)
 {

@@ -9,9 +9,8 @@
 
 int main(void)
 {
-    string_t test = new_string(NULL);
-    console_t console = init_console();
+    string_t string = new_string("test");
 
-    console.logger(test.value);
+    printf("%d\n", string.index_of(&string, NULL).x);
     return (0);
 }
