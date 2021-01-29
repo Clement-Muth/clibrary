@@ -1,15 +1,11 @@
 {
-    "editor.formatOnSave": false,
-    "files.associations": {
-        "cmath": "cpp",
-        "cstdarg": "cpp",
-        "cstdio": "cpp",
-        "cstdlib": "cpp",
-        "type_traits": "cpp",
-        "limits": "cpp",
-        "*.tcc": "cpp",
-        "cstdbool": "cpp",
-        "cstdint": "cpp",
-        "typeinfo": "cpp"
-    }
+  "editor.tabSize": 4,
+  "files.associations": {
+    "index.h": "c",
+    "stdbool.h": "c",
+    "stdlib.h": "c",
+    "constant.h": "c",
+    "type_traits": "c",
+    "macro.h": "c"
+  },
 }

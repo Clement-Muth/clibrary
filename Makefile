@@ -5,33 +5,39 @@
 ## Makefile
 ##
 
-GCC =	gcc
-CFLAGS =	-Wall -Wextra -std=c99 -g -DDEBUG
-LDFLAGS =	-Iincludes/ -L./bin/ -lconsole -L./bin/ -ltypes utils/*.c
-LBLIBS =	-L./bin/ -lconsole -L./bin/ -ltypes -L./bin/ -lassert
+GCC	=	gcc
+CFLAGS	=	-Wall -Wextra -g -DDEBUG
+LBLIBS	=	-L./bin/ -lconsole -L./bin/ -ltypes -L./bin/ -lutils -L./bin/ -lassert
+LIB_PATH	=	library
 
-SRC =	test.c
+SRC =	main.c
 OBJ =	$(SRC:.c=.o)
 EXEC =	test
 
 all: $(EXEC)
 
 $(EXEC): lib $(OBJ)
-	$(GCC) $(CFLAGS) $(LDFLAGS) -o $@ $(OBJ) $(LBLIBS)
+	$(GCC) $(CFLAGS) -o $@ $(OBJ) $(LBLIBS)
 
 lib:
-	$(MAKE) -C types/
-	$(MAKE) -C print/
-	$(MAKE) -C assert/
+	$(MAKE) -C $(LIB_PATH)/types/
+	$(MAKE) -C $(LIB_PATH)/print/
+	$(MAKE) -C $(LIB_PATH)/assert/
+	$(MAKE) -C $(LIB_PATH)/utils/
 
 clean:
 	rm -rf $(OBJ)
+	$(MAKE) -C $(LIB_PATH)/types/ clean
+	$(MAKE) -C $(LIB_PATH)/print/ clean
+	$(MAKE) -C $(LIB_PATH)/assert/ clean
+	$(MAKE) -C $(LIB_PATH)/utils/ clean
 
 fclean:	clean
 	rm -rf $(EXEC)
-	$(MAKE) -C types/ fclean
-	$(MAKE) -C print/ fclean
-	$(MAKE) -C assert/ fclean
+	$(MAKE) -C $(LIB_PATH)/types/ fclean
+	$(MAKE) -C $(LIB_PATH)/print/ fclean
+	$(MAKE) -C $(LIB_PATH)/assert/ fclean
+	$(MAKE) -C $(LIB_PATH)/utils/ fclean
 
 re:	fclean all
 
