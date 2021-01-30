@@ -21,6 +21,8 @@
 #define DESC_ERR_STRCAT_SRC_UNDEFINED "Cannot read property 'src' of undefined"
 #define DESC_ERR_STR_UNDEFINED \
     "Cannot read property 'str' of undefined"
+#define DESC_ERR_AP_UNDEFINED \
+    "Cannot read property 'ap' of undefined"
 #define DESC_ERR_STRING_NEW_STRING_UNDEFINED \
     "Cannot read property 'value' of undefined"
 #define DESC_ERR_CONCAT_UNDEFINED DESC_ERR_STRCAT_SRC_UNDEFINED

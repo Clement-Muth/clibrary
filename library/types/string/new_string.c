@@ -8,12 +8,12 @@
 #include "includes/index.h"
 #include "../../utils/includes/index.h"
 
+static jmp_buf ex_buf;
+
 static void init_functions(string_t *this, char const *value)
 {
-    // this->append_c = append_c;
-    // this->append = append;
-    // this->assign_c = assign_c;
-    // this->assign = assign;
+    this->append = append;
+    this->assign = assign;
     // this->at = at;
     this->length = (value) ? my_strlen(value) : (size_t)0;
     this->buffer = (value) ? MAX(this->length, ((size_t)10)) : (size_t)0;
@@ -22,6 +22,7 @@ static void init_functions(string_t *this, char const *value)
     // this->compare_c = compare_c;
     // this->compare = compare;
     // this->copy = copy;
+    this->string_destroy = string_destroy;
     // this->empty = empty;
     this->find = find;
     // this->insert_c = insert_c;

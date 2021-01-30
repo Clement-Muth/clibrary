@@ -2,43 +2,36 @@
 ** EPITECH PROJECT, 2021
 ** clibrary
 ** File description:
-** find
+** assign
 */
 
 #include "includes/index.h"
-#include <stdio.h>
+#include <string.h>
 
 static jmp_buf ex_buf;
 
-static int find_c(const string_t *this, char *str, size_t pos, jmp_buf ex_buf)
+static void assign_c(string_t *this, const char *s)
 {
-    char *tmp;
-
-    if (is_undefined(this->str) || is_undefined(str)) THROW(3);
-    if (this->length <= pos) THROW(2);
-    tmp = my_strstr(&this->str[pos], str);
-    return (tmp) ? (tmp - this->str) : (-1);
+    if (is_undefined(this->str) || is_undefined(s)) THROW(3);
+    string_destroy(this);
+    this->str = (char *)s;
+    this->length = my_strlen(s);
 }
 
-int (find)(string_t const *this, string_t const *str, size_t pos,
-    global_info_t infos)
+void (assign)(string_t *this, const string_t *str, global_info_t infos)
 {
     TRY {
         my_assert(this != NULL, infos, ASSERT_INFO(DESC_ERR_THIS_UNDEFINED,
             ERR_TYPE, FAIL_EXEC), ex_buf);
         my_assert(str != NULL, infos, ASSERT_INFO(DESC_ERR_STR_UNDEFINED,
             ERR_TYPE, FAIL_EXEC), ex_buf);
-        return (find_c(this, str->str, pos, ex_buf));
+        assign_c(this, str->str);
     } CATCH(1) {
-        return (0);
-    } CATCH(2) {
-        my_warning_assert(this->length > pos, infos, ASSERT_INFO(
-            DESC_ERR_FIND_BAD_POS_UNDEFINED, ERR_TYPE, FAIL_FUNC_EXEC), ex_buf);
+        return;
     } CATCH(3) {
         my_warning_assert(!is_undefined(this->str), infos, ASSERT_INFO(
             DESC_ERR_STR_UNDEFINED, ERR_TYPE, FAIL_FUNC_EXEC), ex_buf);
         my_warning_assert(!is_undefined(str->str), infos, ASSERT_INFO(
             DESC_ERR_STR_UNDEFINED, ERR_TYPE, FAIL_FUNC_EXEC), ex_buf);
     } ETRY;
-    return (0);
 }

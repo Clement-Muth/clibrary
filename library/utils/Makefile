@@ -22,7 +22,9 @@ SRC 				=	memcpy.c	\
 						atoi.c		\
 						itoa.c		\
 						revstr.c	\
-						strstr.c
+						strstr.c	\
+						memset.c	\
+						strcpy.c
 
 CFLAGS 				= -Wall -I./includes
 

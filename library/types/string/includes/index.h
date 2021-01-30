@@ -17,6 +17,7 @@
  * This function is not a possible cancellation point and therefore if an error
  * occured, a warning will be my_assertn.
  * @param value The value of new string object.
+ * @return string_t
  */
 #define new_string(value) new_string(value, PROTO_DATA)
 
@@ -24,10 +25,6 @@ string_t *(new_string)(char const *value, global_info_t infos);
 
 void string_init(string_t *this, const char *s);
 void string_destroy(string_t *this);
-void assign(string_t *this, const string_t *str);
-void assign_c(string_t *this, const char *s);
-void append(string_t *this, const string_t *ap);
-void append_c(string_t *this, const char *ap);
 char at(const string_t *this, size_t pos);
 void clear(string_t *this);
 int size(const string_t *this);
@@ -40,12 +37,33 @@ void insert(string_t *this, size_t pos, const string_t *str);
 void insert_c(string_t *this, size_t pos, const char *str);
 int to_int(const string_t *this);
 
+
 /**
- * @brief searches for the first occurence of str’s content in the
+ * @brief Appends the content of ap to that of the current instance.
+ * @param this Current instance
+ * @param ap value to append
+ * @return (void)
+ */
+#define append(this, ap) append(this, ap, PROTO_DATA)
+
+void (append)(string_t *this, string_t const *restrict ap, global_info_t infos);
+
+/**
+ * @brief Sets the content of the current instance to that of str.
+ * @param this Current instance
+ * @param str String to assign
+ * @return void
+ */
+#define assign(this, str) assign(this, str, PROTO_DATA)
+
+void (assign)(string_t *this, const string_t *str, global_info_t infos);
+
+/**
+ * @brief Searches for the first occurence of str’s content in the
  * current instance, starting from the pos position.
- * @param this current instance
- * @param str string to find...
- * @param pos beginin position
+ * @param this Current instance
+ * @param str String to find...
+ * @param pos Beginin position
  * @return int
  */
 #define find(this, str, pos) find(this, str, pos, PROTO_DATA)
@@ -54,8 +72,8 @@ int (find)(const string_t *this, const string_t *str, size_t pos,
     global_info_t infos);
 
 /**
- * @brief displays the content of the current instance to the standard output.
- * @param print current instance
+ * @brief Displays the content of the current instance to the standard output.
+ * @param print Current instance
  * @return void
  */
 #define print(this) print(this, PROTO_DATA)

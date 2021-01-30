@@ -26,7 +26,10 @@ SRC_NUMBER			=	new_number.c
 PATH_STRING			=	string/
 SRC_STRING			=	new_string.c	\
 						find.c	\
-						print.c
+						print.c	\
+						assign.c	\
+						destroy.c	\
+						append.c
 
 SRC					=	$(addprefix $(PATH_NUMBER), $(SRC_NUMBER)) \
 						$(addprefix $(PATH_STRING), $(SRC_STRING))

@@ -27,10 +27,10 @@ typedef struct string_s
         size_t pos, global_info_t infos);
     int (*size)(const struct string_s *this);
     size_t (*copy)(const struct string_s *this, char *s, size_t n, size_t pos);
-    void (*append_c)(struct string_s *this, const char *ap);
-    void (*append)(struct string_s *this, const struct string_s *ap);
-    void (*assign_c)(struct string_s *this, const char *s);
-    void (*assign)(struct string_s *this, const struct string_s *str);
+    void (*append)(struct string_s *this, struct string_s const *ap,
+        global_info_t infos);
+    void (*assign)(struct string_s *this, struct string_s const *str,
+        global_info_t infos);
     void (*clear)(struct string_s *this);
     void (*insert_c)(struct string_s *this, size_t pos, const char *str);
     void (*insert)(struct string_s *this, size_t pos,

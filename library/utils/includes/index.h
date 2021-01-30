@@ -8,6 +8,7 @@
 #ifndef UTILS_INDEX_H_
 #define UTILS_INDEX_H_
 
+#include <stdio.h>
 #include <stddef.h>
 #include "../../includes/macro.h"
 #include "../../includes/struct.h"
@@ -41,7 +42,7 @@ size_t (my_strlen)(const char *string, global_info_t infos);
  * @param dest The destination of concat
  * @param src The strings to append to the end of the string.
  */
-char *my_strcat(char *dest, const char *src);
+char *my_strcat(register char *dest, register char const *restrict src);
 
 /**
  * Compare S1 and S2, returning less than, equal to or
@@ -93,5 +94,23 @@ int my_revstr(char *string);
  * @return first occurence
  */
 char *my_strstr(register char *string, char *substring);
+
+
+/**
+ * @brief Fill a block of memory with a particular value.
+ * @param dest
+ * @param val
+ * @param length
+ * @return (void *)
+ */
+void *my_memset(void *dest, int val, size_t length);
+
+/**
+ * @brief Copy the content of one string into another.
+ * @param dest Destination string
+ * @param src Source string
+ * @return (char *)
+ */
+char *my_strcpy(char *dest, char const *src);
 
 #endif /* !UTILS_INDEX_H_ */

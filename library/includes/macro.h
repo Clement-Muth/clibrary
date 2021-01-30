@@ -45,6 +45,9 @@ unsigned long long int: "unsigned long long int",\
         float: "float",                         double: "double",              \
   long double: "long double",                   char *: "pointer to char",     \
        void *: "pointer to void",                int *: "pointer to int",      \
+   string_t *: "pointer to string",  \
       default: "other")
+
+#define is_undefined(value) ((!my_strcmp(value, UNDEFINED)) ? (true) : (false))
 
 #endif /* !MACRO_H_ */

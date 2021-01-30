@@ -8,6 +8,7 @@
 #pragma once
 
 #include <setjmp.h>
+#include <stdio.h>
 #include "../../includes/macro.h"
 #include "../../includes/struct.h"
 #include "constant.h"

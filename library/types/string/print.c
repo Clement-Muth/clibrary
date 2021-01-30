@@ -7,6 +7,8 @@
 
 #include "includes/index.h"
 
+static jmp_buf ex_buf;
+
 void (print)(string_t const *this, global_info_t infos)
 {
     TRY {
