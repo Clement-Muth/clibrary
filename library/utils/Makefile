@@ -17,14 +17,14 @@ SRC 				=	memcpy.c	\
 						strcmp.c	\
 						strdup.c	\
 						strlen.c	\
-						get_type.c	\
 						putchar.c	\
 						putstr.c	\
 						atoi.c		\
 						itoa.c		\
-						revstr.c
+						revstr.c	\
+						strstr.c
 
-CFLAGS 				= -Wall -I./include
+CFLAGS 				= -Wall -I./includes
 
 AR 					= ar rc
 

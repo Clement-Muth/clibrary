@@ -19,7 +19,7 @@ SRC 				= 	color.c \
 						warn.c
 
 
-CFLAGS 				= -Wall -I./include
+CFLAGS 				= -Wall -I./includes
 
 AR 					= ar rc
 

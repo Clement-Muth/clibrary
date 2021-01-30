@@ -29,11 +29,4 @@
 #define DESC_WARN_REPLACE_VALUE_UNDEFINED \
         "Cannot read property 'replace_value' of undefined. Replacing aborded."
 
-#define RED "\033[1;91m"
-#define RES "\033[0m"
-#define GREY "\033[1;90m"
-#define CYAN "\033[0;96m"
-#define YELLOW "\033[0;93m"
-#define GREY_WHITE "\033[0;100m"
-
 #endif /* !ASSERT_CONSTANT_H_ */

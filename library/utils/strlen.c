@@ -11,7 +11,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-int (my_strlen)(const char *string, global_info_t infos)
+size_t (my_strlen)(const char *string, global_info_t infos)
 {
     int i = 0;
 

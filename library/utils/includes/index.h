@@ -34,7 +34,7 @@ void *my_memcpy(void *dest, const void *src, int length);
  */
 #define my_strlen(string) my_strlen(string, PROTO_DATA)
 
-int (my_strlen)(const char *string, global_info_t infos);
+size_t (my_strlen)(const char *string, global_info_t infos);
 
 /**
  * Returns a string that contains the concatenation of two or more strings.
@@ -85,5 +85,13 @@ int my_atoi(const char *restrict string);
 char *my_itoa(int num);
 
 int my_revstr(char *string);
+
+/**
+ * @brief Locate the first occurence of a substring in a string.
+ * @param char
+ * @param substring
+ * @return first occurence
+ */
+char *my_strstr(register char *string, char *substring);
 
 #endif /* !UTILS_INDEX_H_ */

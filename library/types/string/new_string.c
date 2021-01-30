@@ -5,22 +5,38 @@
 ** new_string
 */
 
-#include "./includes/index.h"
+#include "includes/index.h"
 #include "../../utils/includes/index.h"
 
-string_t this_constructor(const char *value)
+static void init_functions(string_t *this, char const *value)
 {
-    string_t this;
+    // this->append_c = append_c;
+    // this->append = append;
+    // this->assign_c = assign_c;
+    // this->assign = assign;
+    // this->at = at;
+    this->length = (value) ? my_strlen(value) : (size_t)0;
+    this->buffer = (value) ? MAX(this->length, ((size_t)10)) : (size_t)0;
+    // this->c_str = c_str;
+    // this->clear = clear;
+    // this->compare_c = compare_c;
+    // this->compare = compare;
+    // this->copy = copy;
+    // this->empty = empty;
+    this->find_c = find_c;
+    this->find = find;
+    // this->insert_c = insert_c;
+    // this->insert = insert;
+    this->print = print;
+    this->str = (value) ? my_strdup(value) : NULL;
+}
 
-    this.concat = concat;
-    this.index_of = index_of;
-    this.last_index_of = last_index_of;
-    this.match = match;
-    this.replace = replace;
-    this.substr = substr;
-    this.status = !value ? 84 : 0;
-    this.length = my_strlen(value);
-    this.value = my_strdup((char *)value);
-    this.type = "string";
+string_t *(new_string)(char const *value, global_info_t infos)
+{
+    string_t *this = malloc(sizeof(string_t));
+
+    my_assert_dev(this != NULL, infos,
+        ASSERT_INFO(DESC_ERR_ALLOC_FAILED, ERR_TYPE, ERR_ALC84));
+    init_functions(this, value);
     return (this);
 }

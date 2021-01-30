@@ -9,11 +9,9 @@
 
 LIB	=	libassert.a
 
-SRC	=	assert_fail.c \
-		assert_fail_dev.c \
-		assert_warn_fail_dev.c
+SRC	=	assert_fail_dev.c \
 
-CFLAGS	=	-Wall -I./include -DDEBUG -Werror -Wextra -pedantic
+CFLAGS	=	-Wall -I./includes -DDEBUG -Werror -Wextra -pedantic
 
 AR	=	ar rc
 

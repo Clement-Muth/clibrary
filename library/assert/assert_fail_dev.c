@@ -5,12 +5,12 @@
 ** assert_fail
 */
 
-#include "includes/index.h"
-#include "includes/constant.h"
-#include "../utils/includes/index.h"
 #include <stdlib.h>
 #include <stdio.h>
-#include <stdarg.h>
+#include "../includes/index.h"
+#include "../print/includes/index.h"
+#include "../utils/includes/index.h"
+#include "index.h"
 
 static char *error_underline(int length)
 {
@@ -22,23 +22,21 @@ static char *error_underline(int length)
     return (underline);
 }
 
-int (my_assert_fail_dev)(const char *assertion,
-                        global_info_t infos, assert_info_t assert_data)
+int (throw)(char const *assertion,
+    global_info_t infos, assert_info_t assert_data)
 {
     #ifdef DEBUG
         printf("[%sERROR%s] %s%s%s x %s\n\
         \r%s%s%s:%s%s%s:%s%d%s - %serror%s %s%s%s %s\n\n\
         \r%s%d%s\t%s\n\
-        \r%s  %s\t%s^%s%s\n", RED, RES, GREY, infos.time,
-        RES, assert_data.desc, CYAN,
-        realpath(infos.file, NULL), RES, CYAN, infos.func, RES, YELLOW,
-        infos.line, RES, RED, RES, GREY, assert_data.type,
-        RES, assert_data.nbr, GREY_WHITE, infos.line, RES,
-        assertion, GREY_WHITE, RES, RED, error_underline(my_strlen(assertion)),
-        RES);
+        \r%s  %s\t%s^%s%s\n", RED, RES, GREY, infos.time, RES, assert_data.desc,
+        CYAN, realpath(infos.file, NULL), RES, CYAN, infos.func, RES, YELLOW,
+        infos.line, RES, RED, RES, GREY, assert_data.type, RES, assert_data.nbr,
+        GREY_WHITE, infos.line, RES, assertion, GREY_WHITE, RES, RED,
+        error_underline(my_strlen(assertion)), RES);
         exit(84);
     #else
-        write(2, "An error occured. Aborted.", 27);
+        my_putstr("An error occured. Aborted.", 2);
     #endif
-    return (-1);
+    return (84);
 }

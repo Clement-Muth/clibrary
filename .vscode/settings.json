@@ -6,6 +6,8 @@
     "stdlib.h": "c",
     "constant.h": "c",
     "type_traits": "c",
-    "macro.h": "c"
+    "macro.h": "c",
+    "stdarg.h": "c",
+    "struct.h": "c"
   },
 }

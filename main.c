@@ -5,10 +5,12 @@
 ** main
 */
 
-#include "library/utils/includes/index.h"
+#include "library/includes/type.h"
 
 int main(void)
 {
-    my_strlen(NULL);
+    string_t *string = new_string("test");
+
+    string->print(string);
     return (0);
 }

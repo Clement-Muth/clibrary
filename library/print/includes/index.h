@@ -8,17 +8,18 @@
 #ifndef PRINT_INDEX_H_
 #define PRINT_INDEX_H_
 
-#include "structs.h"
 #include "../../includes/macro.h"
-#include "../../types/string/includes/structs.h"
 #include "../../types/number/includes/structs.h"
+#include "../../types/string/includes/structs.h"
+#include "color.h"
+#include "structs.h"
 
 /**
  * Create a new console
  */
 console_t new_console();
 
-void print_color(const char *string, const char *hex_color, int fd);
+void print_color(char const *string, char const *hex_color, int fd);
 
 
 #define logger(expr, ...) logger(expr, _N__ARG(__VA_ARGS__), ##__VA_ARGS__)
@@ -27,9 +28,9 @@ void print_color(const char *string, const char *hex_color, int fd);
  * @param matcher The character to write.
  * @param matcher The output where the character must be write.
  */
-void warn(const void *data);
-void error(const char *error);
-void (logger)(const void *expr, int n_args, ...);
+void warn(void const *data);
+void error(char const *error);
+void (logger)(void const *expr, int n_args, ...);
 
 
 #endif /* !PRINT_INDEX_H_ */
