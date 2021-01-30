@@ -39,5 +39,5 @@ typedef struct string_s
     void (*string_destroy)(struct string_s *this);
     void (*string_init)(struct string_s *this, const char *s);
     int (*to_int)(const struct string_s *this);
-    void (*print)(struct string_s const *this);
+    void (*print)(struct string_s const *this, global_info_t infos);
 } string_t;

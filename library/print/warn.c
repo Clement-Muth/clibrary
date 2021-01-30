@@ -24,13 +24,13 @@ static int write_warn_string(const char *message)
 
 void warn(const void *data)
 {
-    if (!((string_t *)data)->type && !((number_t *)data)->type)
-        return;
-    if (my_strcmp(((string_t *)data)->type, "string") == 0)
-        write_warn_string(((string_t *)data)->value);
-    if (my_strcmp(((array_s *)data)->type, "array_s") == 0)
-        ((array_s *)data)->foreach(E(message, ((array_s*)data), i, {
-            write_warn_string(message.value);
-            my_putchar('\n', 2);
-        }));
+    // if (!((string_t *)data)->type && !((number_t *)data)->type)
+    //     return;
+    // if (my_strcmp(((string_t *)data)->type, "string") == 0)
+    //     write_warn_string(((string_t *)data)->value);
+    // if (my_strcmp(((array_s *)data)->type, "array_s") == 0)
+    //     ((array_s *)data)->foreach(E(message, ((array_s*)data), i, {
+    //         write_warn_string(message.value);
+    //         my_putchar('\n', 2);
+    //     }));
 }

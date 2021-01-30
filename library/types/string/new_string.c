@@ -35,8 +35,15 @@ string_t *(new_string)(char const *value, global_info_t infos)
 {
     string_t *this = malloc(sizeof(string_t));
 
-    my_assert_dev(this != NULL, infos,
-        ASSERT_INFO(DESC_ERR_ALLOC_FAILED, ERR_TYPE, ERR_ALC84));
-    init_functions(this, value);
+    TRY {
+        my_assert(this != NULL, infos,
+            ASSERT_INFO(DESC_ERR_ALLOC_FAILED, ERR_TYPE, ERR_ALC84), ex_buf);
+        my_warning_assert(value != NULL, infos,
+            ASSERT_INFO(DESC_ERR_STRING_NEW_STRING_UNDEFINED,
+            ERR_TYPE, FAIL_FUNC_EXEC), ex_buf);
+        init_functions(this, value);
+    } CATCH(1) {
+        init_functions(this, UNDEFINED);
+    } ETRY;
     return (this);
 }

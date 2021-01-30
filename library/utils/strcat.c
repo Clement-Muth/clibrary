@@ -16,13 +16,14 @@
 bool check_error(const char *src, const char *result)
 {
     if (src == NULL) {
-        my_assert_dev(result != NULL, PROTO_DATA,
-            ASSERT_INFO(DESC_ERR_STRCAT_SRC_UNDEFINED, ERR_TYPE, FAIL_EXEC));
+        my_assert(result != NULL, PROTO_DATA,
+            ASSERT_INFO(DESC_ERR_STRCAT_SRC_UNDEFINED, ERR_TYPE, FAIL_EXEC),
+            NULL);
         return (false);
     }
     if (result == NULL) {
-        my_assert_dev(result != NULL, PROTO_DATA,
-            ASSERT_INFO(DESC_ERR_ALLOC_FAILED, ERR_ALC84, FAIL_EXEC));
+        my_assert(result != NULL, PROTO_DATA,
+            ASSERT_INFO(DESC_ERR_ALLOC_FAILED, ERR_ALC84, FAIL_EXEC), NULL);
         return (false);
     }
     return (true);

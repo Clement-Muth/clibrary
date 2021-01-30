@@ -22,8 +22,8 @@ static char *error_underline(int length)
     return (underline);
 }
 
-int (throw)(char const *assertion,
-    global_info_t infos, assert_info_t assert_data)
+int (my_assert)(char const *assertion,
+    global_info_t infos, assert_info_t assert_data, jmp_buf ex_buf)
 {
     #ifdef DEBUG
         printf("[%sERROR%s] %s%s%s x %s\n\
@@ -38,5 +38,6 @@ int (throw)(char const *assertion,
     #else
         my_putstr("An error occured. Aborted.", 2);
     #endif
+    THROW(1);
     return (84);
 }

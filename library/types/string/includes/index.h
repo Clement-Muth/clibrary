@@ -15,7 +15,7 @@
 /**
  * Returns a string object.
  * This function is not a possible cancellation point and therefore if an error
- * occured, a warning will be thrown.
+ * occured, a warning will be my_assertn.
  * @param value The value of new string object.
  */
 #define new_string(value) new_string(value, PROTO_DATA)
@@ -41,4 +41,7 @@ int find_c(const string_t *this, char *str, size_t pos);
 void insert(string_t *this, size_t pos, const string_t *str);
 void insert_c(string_t *this, size_t pos, const char *str);
 int to_int(const string_t *this);
-void print(string_t const *this);
+
+#define print(this) print(this, PROTO_DATA)
+
+void (print)(string_t const *this, global_info_t infos);

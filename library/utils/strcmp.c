@@ -18,10 +18,12 @@ int my_strcmp(const char *p1, const char *p2)
     unsigned char c1, c2;
 
     if (p1 == NULL || p2 == NULL) {
-        my_assert_dev(p1 != NULL, PROTO_DATA,
-            ASSERT_INFO(DESC_ERR_STRCMP_S1_UNDEFINED, ERR_TYPE, FAIL_EXEC));
-        my_assert_dev(p2 != NULL, PROTO_DATA,
-            ASSERT_INFO(DESC_ERR_STRCMP_S2_UNDEFINED, ERR_TYPE, FAIL_EXEC));
+        my_assert(p1 != NULL, PROTO_DATA,
+            ASSERT_INFO(DESC_ERR_STRCMP_S1_UNDEFINED, ERR_TYPE, FAIL_EXEC),
+            NULL);
+        my_assert(p2 != NULL, PROTO_DATA,
+            ASSERT_INFO(DESC_ERR_STRCMP_S2_UNDEFINED, ERR_TYPE, FAIL_EXEC),
+            NULL);
         return (-1);
     }
     do {

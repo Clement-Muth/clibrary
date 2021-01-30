@@ -1,0 +1,36 @@
+/*
+** EPITECH PROJECT, 2021
+** clibrary
+** File description:
+** insert
+*/
+
+#include "includes/index.h"
+
+void insert_c(string_t *this, size_t pos, const char *str)
+{
+    char *before = malloc(pos + 1);
+    char *after;
+    string_t insert;
+
+    if (!this || !this->str || !str || (int)pos < 0)
+        return;
+    after = malloc(strlen(str) - pos + 1);
+    if (pos >= this->length)
+		return this->append_c(this, str);
+    for (int i = 0; i <= (int)pos; i++)
+        before[i] = this->str[i];
+    before[pos + 1] = '\0';
+    for (int i = pos + 1, n = 0; this->str[i]; i++, n++)
+        after[n] = this->str[i];
+    after[(strlen(str) - pos)] = '\0';
+    string_init(&insert, before);
+    insert.append_c(&insert, str);
+    insert.append_c(&insert, after);
+    this->assign_s(this, &insert);
+}
+
+void insert_s(string_t *this, size_t pos, const string_t *str)
+{
+    insert_c(this, pos, str->str);
+}

@@ -8,6 +8,7 @@
     "type_traits": "c",
     "macro.h": "c",
     "stdarg.h": "c",
-    "struct.h": "c"
+    "struct.h": "c",
+    "type.h": "c"
   },
 }

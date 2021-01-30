@@ -17,8 +17,8 @@ char *my_strdup(const char *string)
     void *new = malloc(len);
 
     if (new == NULL) {
-        my_assert_dev(new != NULL, PROTO_DATA,
-            ASSERT_INFO(DESC_ERR_ALLOC_FAILED, ERR_ALC84, FAIL_EXEC));
+        my_assert(new != NULL, PROTO_DATA,
+            ASSERT_INFO(DESC_ERR_ALLOC_FAILED, ERR_ALC84, FAIL_EXEC), NULL);
         return (UNDEFINED);
     }
     return ((char *)my_memcpy(new, string, len));

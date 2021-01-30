@@ -15,7 +15,7 @@ static void print_string(const void *data, int type)
 {
     const string_t new_data = *((string_t *)data);
 
-    my_putstr(type == -1 ? new_data.value : (char *)data, 1);
+    my_putstr(type == -1 ? new_data.str : (char *)data, 1);
     my_putchar('\n', 1);
 }
 

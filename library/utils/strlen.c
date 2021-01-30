@@ -16,8 +16,9 @@ size_t (my_strlen)(const char *string, global_info_t infos)
     int i = 0;
 
     if (!string) {
-        my_assert_dev(string != NULL, infos,
-            ASSERT_INFO(DESC_ERR_STRLEN_UNDEFINED, ERR_TYPE, FAIL_EXEC));
+        my_assert(string != NULL, infos,
+            ASSERT_INFO(DESC_ERR_STRLEN_UNDEFINED, ERR_TYPE, FAIL_EXEC),
+            NULL);
         return (false);
     }
     for (i = 0; string[i]; i++);
