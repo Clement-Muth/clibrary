@@ -11,7 +11,8 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-int my_strcmp(const char *p1, const char *p2)
+int my_strcmp(register char const *restrict p1,
+    register char const *restrict p2)
 {
     const unsigned char *s1 = (const unsigned char *)p1;
     const unsigned char *s2 = (const unsigned char *)p2;

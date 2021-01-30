@@ -11,7 +11,7 @@
 #include "../includes/constant.h"
 #include <stdlib.h>
 
-char *my_strdup(const char *string)
+char *my_strdup(char const *restrict string)
 {
     size_t len = my_strlen(string) + 1;
     void *new = malloc(len);

@@ -17,7 +17,7 @@
  * Duplicate S, returning an identical malloc'd string.
  * @param string The string to assign.
  */
-char *my_strdup(const char *string);
+char *my_strdup(char const *restrict string);
 
 /**
  * Copy memory to memory until the specified number of bytes has been copied.
@@ -25,7 +25,8 @@ char *my_strdup(const char *string);
  * @param src The string to copy.
  * @param length The length of dest and src.
  */
-void *my_memcpy(void *dest, const void *src, int length);
+void *my_memcpy(void *dest, void const *restrict src,
+    register int length);
 
 
 /**
@@ -35,7 +36,7 @@ void *my_memcpy(void *dest, const void *src, int length);
  */
 #define my_strlen(string) my_strlen(string, PROTO_DATA)
 
-size_t (my_strlen)(const char *string, global_info_t infos);
+size_t (my_strlen)(register char const *restrict string, global_info_t infos);
 
 /**
  * Returns a string that contains the concatenation of two or more strings.
@@ -51,13 +52,8 @@ char *my_strcat(register char *dest, register char const *restrict src);
  * @param p1 The string compared.
  * @param p2 The string to compare.
  */
-int my_strcmp(const char *p1, const char *p2);
-
-/**
- * Returns the type of var
- * @param var Variable to determinate type
- */
-int get_type(const void *var);
+int my_strcmp(register char const *restrict p1,
+    register char const *restrict p2);
 
 /**
  * Write a character to the console.
@@ -71,13 +67,13 @@ void my_putchar(char character, int fd);
  * @param string The string to write.
  * @param fd The output where the character must be write.
  */
-void my_putstr(char *string, int fd);
+void my_putstr(register char *string, int fd);
 
 /**
  * Converts a string to an integer
  * @param string The string to convert.
  */
-int my_atoi(const char *restrict string);
+int my_atoi(register char const *restrict string);
 
 /**
  * Converts a string to an integer
@@ -85,7 +81,7 @@ int my_atoi(const char *restrict string);
  */
 char *my_itoa(int num);
 
-int my_revstr(char *string);
+int my_revstr(register char *string);
 
 /**
  * @brief Locate the first occurence of a substring in a string.
@@ -93,7 +89,7 @@ int my_revstr(char *string);
  * @param substring
  * @return first occurence
  */
-char *my_strstr(register char *string, char *substring);
+char *my_strstr(register char *string, register char *substring);
 
 
 /**
@@ -103,7 +99,7 @@ char *my_strstr(register char *string, char *substring);
  * @param length
  * @return (void *)
  */
-void *my_memset(void *dest, int val, size_t length);
+void *my_memset(void *dest, int val, register size_t length);
 
 /**
  * @brief Copy the content of one string into another.
@@ -111,6 +107,6 @@ void *my_memset(void *dest, int val, size_t length);
  * @param src Source string
  * @return (char *)
  */
-char *my_strcpy(char *dest, char const *src);
+char *my_strcpy(char *dest, char const *restrict src);
 
 #endif /* !UTILS_INDEX_H_ */

@@ -7,7 +7,7 @@
 
 #include "index.h"
 
-void *my_memset(void *dest, int val, size_t length)
+void *my_memset(void *dest, int val, register size_t length)
 {
     unsigned char *ptr = dest;
 
