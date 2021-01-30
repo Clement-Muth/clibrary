@@ -9,7 +9,7 @@
 
 static jmp_buf ex_buf;
 
-void (print)(string_t const *this, global_info_t infos)
+void (print)(string_t const *restrict this, global_info_t infos)
 {
     TRY {
         my_assert(this != NULL, infos, ASSERT_INFO(DESC_ERR_STR_UNDEFINED,

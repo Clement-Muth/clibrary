@@ -10,7 +10,8 @@
 
 static jmp_buf ex_buf;
 
-static int find_c(const string_t *this, char *str, size_t pos, jmp_buf ex_buf)
+static int find_c(string_t const *restrict this, register char *str,
+    size_t pos, jmp_buf ex_buf)
 {
     char *tmp;
 
@@ -20,8 +21,8 @@ static int find_c(const string_t *this, char *str, size_t pos, jmp_buf ex_buf)
     return (tmp) ? (tmp - this->str) : (-1);
 }
 
-int (find)(string_t const *this, string_t const *str, size_t pos,
-    global_info_t infos)
+int (find)(string_t const *restrict this, string_t const *restrict str,
+    register size_t pos, global_info_t infos)
 {
     TRY {
         my_assert(this != NULL, infos, ASSERT_INFO(DESC_ERR_THIS_UNDEFINED,
@@ -29,8 +30,6 @@ int (find)(string_t const *this, string_t const *str, size_t pos,
         my_assert(str != NULL, infos, ASSERT_INFO(DESC_ERR_STR_UNDEFINED,
             ERR_TYPE, FAIL_EXEC), ex_buf);
         return (find_c(this, str->str, pos, ex_buf));
-    } CATCH(1) {
-        return (0);
     } CATCH(2) {
         my_warning_assert(this->length > pos, infos, ASSERT_INFO(
             DESC_ERR_FIND_BAD_POS_UNDEFINED, ERR_TYPE, FAIL_FUNC_EXEC), ex_buf);

@@ -9,7 +9,7 @@
 
 int main(void)
 {
-    string_t *string = new_string(NULL);
+    string_t *string = new_string("test");
     string_t *string2 = new_string("string");
 
     string->append(string, string2);

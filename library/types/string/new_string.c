@@ -10,7 +10,7 @@
 
 static jmp_buf ex_buf;
 
-static void init_functions(string_t *this, char const *value)
+static void init_functions(string_t *this, register char const *restrict value)
 {
     this->append = append;
     this->assign = assign;
@@ -31,7 +31,7 @@ static void init_functions(string_t *this, char const *value)
     this->str = (value) ? my_strdup(value) : NULL;
 }
 
-string_t *(new_string)(char const *value, global_info_t infos)
+string_t *(new_string)(char const *restrict value, global_info_t infos)
 {
     string_t *this = malloc(sizeof(string_t));
 

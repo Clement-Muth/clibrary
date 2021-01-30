@@ -21,9 +21,9 @@
  */
 #define new_string(value) new_string(value, PROTO_DATA)
 
-string_t *(new_string)(char const *value, global_info_t infos);
+string_t *(new_string)(register char const *restrict value,
+    global_info_t infos);
 
-void string_init(string_t *this, const char *s);
 void string_destroy(string_t *this);
 char at(const string_t *this, size_t pos);
 void clear(string_t *this);
@@ -56,7 +56,8 @@ void (append)(string_t *this, string_t const *restrict ap, global_info_t infos);
  */
 #define assign(this, str) assign(this, str, PROTO_DATA)
 
-void (assign)(string_t *this, const string_t *str, global_info_t infos);
+void (assign)(string_t *this, string_t const *restrict str,
+    global_info_t infos);
 
 /**
  * @brief Searches for the first occurence of str’s content in the
@@ -68,8 +69,8 @@ void (assign)(string_t *this, const string_t *str, global_info_t infos);
  */
 #define find(this, str, pos) find(this, str, pos, PROTO_DATA)
 
-int (find)(const string_t *this, const string_t *str, size_t pos,
-    global_info_t infos);
+int (find)(string_t const *restrict this, string_t const *restrict str,
+    register size_t pos, global_info_t infos);
 
 /**
  * @brief Displays the content of the current instance to the standard output.
@@ -78,4 +79,4 @@ int (find)(const string_t *this, const string_t *str, size_t pos,
  */
 #define print(this) print(this, PROTO_DATA)
 
-void (print)(string_t const *this, global_info_t infos);
+void (print)(string_t const *restrict this, global_info_t infos);

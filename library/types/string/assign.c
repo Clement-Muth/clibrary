@@ -10,7 +10,7 @@
 
 static jmp_buf ex_buf;
 
-static void assign_c(string_t *this, const char *s)
+static void assign_c(string_t *this, register char const *restrict s)
 {
     if (is_undefined(this->str) || is_undefined(s)) THROW(3);
     string_destroy(this);
@@ -18,7 +18,7 @@ static void assign_c(string_t *this, const char *s)
     this->length = my_strlen(s);
 }
 
-void (assign)(string_t *this, const string_t *str, global_info_t infos)
+void (assign)(string_t *this, string_t const *restrict str, global_info_t infos)
 {
     TRY {
         my_assert(this != NULL, infos, ASSERT_INFO(DESC_ERR_THIS_UNDEFINED,
