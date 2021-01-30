@@ -10,8 +10,7 @@
 void (print)(string_t const *this, global_info_t infos)
 {
     TRY {
-        my_assert(this != NULL, infos,
-            ASSERT_INFO(DESC_ERR_STRING_PRINT_UNDEFINED,
+        my_assert(this != NULL, infos, ASSERT_INFO(DESC_ERR_STR_UNDEFINED,
             ERR_ALC84, FAIL_EXEC), ex_buf);
         my_putstr(this->str, 1);
     } CATCH(1) {

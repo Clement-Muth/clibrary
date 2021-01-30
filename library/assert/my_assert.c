@@ -34,6 +34,7 @@ int (my_assert)(char const *assertion,
         infos.line, RES, RED, RES, GREY, assert_data.type, RES, assert_data.nbr,
         GREY_WHITE, infos.line, RES, assertion, GREY_WHITE, RES, RED,
         error_underline(my_strlen(assertion)), RES);
+        printf("exit(84)\n");
         exit(84);
     #else
         my_putstr("An error occured. Aborted.", 2);

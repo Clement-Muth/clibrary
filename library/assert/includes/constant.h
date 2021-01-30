@@ -16,8 +16,10 @@
 #define DESC_ERR_STRLEN_UNDEFINED "Cannot read property 'strlen' of undefined"
 #define DESC_ERR_STRCMP_S1_UNDEFINED "Cannot read property 's1' of undefined"
 #define DESC_ERR_STRCMP_S2_UNDEFINED "Cannot read property 's2' of undefined"
+#define DESC_ERR_THIS_UNDEFINED "Cannot read property 'this' of undefined"
+#define DESC_ERR_FIND_BAD_POS_UNDEFINED "Invalid index position"
 #define DESC_ERR_STRCAT_SRC_UNDEFINED "Cannot read property 'src' of undefined"
-#define DESC_ERR_STRING_PRINT_UNDEFINED \
+#define DESC_ERR_STR_UNDEFINED \
     "Cannot read property 'str' of undefined"
 #define DESC_ERR_STRING_NEW_STRING_UNDEFINED \
     "Cannot read property 'value' of undefined"

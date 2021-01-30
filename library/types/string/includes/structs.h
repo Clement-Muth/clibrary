@@ -23,9 +23,8 @@ typedef struct string_s
     int (*compare_c)(const struct string_s *this, const char *str);
     int (*compare)(const struct string_s *this, const struct string_s *str);
     int (*empty)(const struct string_s *this);
-    int (*find_c)(const struct string_s *this, char *str, size_t pos);
-    int (*find)(const struct string_s *this,
-        const struct string_s *str,size_t pos);
+    int (*find)(const struct string_s *this, const struct string_s *str,
+        size_t pos, global_info_t infos);
     int (*size)(const struct string_s *this);
     size_t (*copy)(const struct string_s *this, char *s, size_t n, size_t pos);
     void (*append_c)(struct string_s *this, const char *ap);

@@ -23,7 +23,6 @@ static void init_functions(string_t *this, char const *value)
     // this->compare = compare;
     // this->copy = copy;
     // this->empty = empty;
-    this->find_c = find_c;
     this->find = find;
     // this->insert_c = insert_c;
     // this->insert = insert;

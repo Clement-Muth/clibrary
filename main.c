@@ -9,8 +9,8 @@
 
 int main(void)
 {
-    string_t *string = new_string(NULL);
+    string_t *string = new_string("zedzd string 1");
+    string_t *string2 = new_string("string");
 
-    string->print(NULL);
     return (0);
 }
