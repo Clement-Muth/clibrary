@@ -22,9 +22,6 @@ Clibrary also provides an efficient debugger to reduce debugging sessions...
     |   Type       |      Functions                 |
     |--------------|:------------------------------:|
     | String       | new_string, string_destroy, at, clear, size, compare, copy, empty, insert, to_int, append, assign, find, print| $1600 |
-    | Number       |    ...                         |
-    | Array string |    ...                         |
-    | Array number |    ...                         |
     
 - Provide many features from **c++** and **javascript**
 
