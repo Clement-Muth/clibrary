@@ -51,7 +51,7 @@ Real exception mechanisms need run-time support. To do that, we'll explore the p
 ```c
 #include <setjmp.h>
 ```
-***setjmp*** take a ***jmp_bug*** type variable as only input. It returns `0` when invoked directly and when ***longjmp*** is invoked with the same ***jmp_buf*** variable. It returns the value passed as second argument of ***longjmp***.
+***setjmp*** take a ***jmp_buf*** type variable as only input. It returns `0` when invoked directly and when ***longjmp*** is invoked with the same ***jmp_buf*** variable. It returns the value passed as second argument of ***longjmp***.
 
 Example of basic try-throw-catch:
 ```c
