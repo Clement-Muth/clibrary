@@ -11,6 +11,7 @@
 #include "../../../includes/constant.h"
 #include "../../../utils/includes/index.h"
 #include "structs.h"
+#include "macro.h"
 
 /**
  * Returns a string object.
@@ -33,8 +34,6 @@ int compare_c(const string_t *this, const char *str);
 size_t copy(const string_t *this, char *s, size_t n, size_t pos);
 const char *c_str(const string_t *this);
 int empty(const string_t *this);
-void insert(string_t *this, size_t pos, const string_t *str);
-void insert_c(string_t *this, size_t pos, const char *str);
 int to_int(const string_t *this);
 
 /**
@@ -79,3 +78,16 @@ int (find)(string_t const *restrict this, string_t const *restrict str,
 #define print(this) print(this, PROTO_DATA)
 
 void (print)(string_t const *restrict this, global_info_t infos);
+
+/**
+ * @brief Inserts additional characters into the string right before the
+ * character indicated by pos
+ * @param this Current instance
+ * @param pos Position
+ * @param str Object ot insert
+ * @return (string_t *)
+ */
+#define insert(this, pos, str) insert(this, pos, str, PROTO_DATA);
+
+string_t *(insert)(string_t *this, size_t pos, string_t const *restrict str,
+    global_info_t infos);

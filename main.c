@@ -9,9 +9,10 @@
 
 int main(void)
 {
-    string_t *string = new_string(NULL);
+    string_t *string = new_string("test");
     string_t *string2 = new_string("string");
 
-    string->assign(NULL, string2);
+    string->insert(string, 0, NULL);
+    string->print(string);
     return (0);
 }

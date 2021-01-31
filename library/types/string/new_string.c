@@ -25,8 +25,7 @@ static void init_functions(string_t *this, register char const *restrict value)
     this->string_destroy = string_destroy;
     // this->empty = empty;
     this->find = find;
-    // this->insert_c = insert_c;
-    // this->insert = insert;
+    this->insert = insert;
     this->print = print;
     this->str = (value) ? my_strdup(value) : NULL;
 }
