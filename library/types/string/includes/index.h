@@ -89,5 +89,5 @@ void (print)(string_t const *restrict this, global_info_t infos);
  */
 #define insert(this, pos, str) insert(this, pos, str, PROTO_DATA);
 
-string_t *(insert)(string_t *this, size_t pos, string_t const *restrict str,
+void (insert)(string_t *this, size_t pos, string_t const *restrict str,
     global_info_t infos);

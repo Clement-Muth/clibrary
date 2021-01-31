@@ -32,7 +32,7 @@ typedef struct string_s
     void (*assign)(struct string_s *this, struct string_s const *restrict str,
         global_info_t infos);
     void (*clear)(struct string_s *this);
-    struct string_s *(*insert)(struct string_s *this, size_t pos,
+    void (*insert)(struct string_s *this, size_t pos,
     struct string_s const *restrict str, global_info_t infos);
     void (*string_destroy)(struct string_s *this);
     void (*string_init)(struct string_s *this, register char const *restrict s);

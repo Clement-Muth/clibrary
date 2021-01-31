@@ -39,7 +39,7 @@ static void insert_c(string_t *this, register size_t pos,
     this->length += length;
 }
 
-string_t *(insert)(string_t *this, size_t pos, string_t const *restrict str,
+void (insert)(string_t *this, size_t pos, string_t const *restrict str,
     global_info_t infos)
 {
     TRY {
@@ -52,5 +52,4 @@ string_t *(insert)(string_t *this, size_t pos, string_t const *restrict str,
         my_assert(NULL, infos, ASSERT_INFO(
             DESC_ERR_ALLOC_FAILED, ERR_ALC84, FAIL_EXEC), ex_buf);
     } ETRY;
-    return (this);
 }
