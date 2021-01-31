@@ -26,15 +26,6 @@ string_t *(new_string)(register char const *restrict value,
     global_info_t infos);
 
 void string_destroy(string_t *this);
-char at(const string_t *this, size_t pos);
-void clear(string_t *this);
-int size(const string_t *this);
-int compare(const string_t *this, const string_t *str);
-int compare_c(const string_t *this, const char *str);
-size_t copy(const string_t *this, char *s, size_t n, size_t pos);
-const char *c_str(const string_t *this);
-int empty(const string_t *this);
-int to_int(const string_t *this);
 
 /**
  * @brief Appends the content of ap to that of the current instance.
@@ -91,3 +82,32 @@ void (print)(string_t const *restrict this, global_info_t infos);
 
 void (insert)(string_t *this, size_t pos, string_t const *restrict str,
     global_info_t infos);
+
+/**
+ * @brief Returns the character at position x
+ * @param this
+ * @param pos
+ * @return (char)
+ */
+#define at(this, pos) at(this, pos, PROTO_DATA)
+
+char (at)(const string_t *this, size_t pos, global_info_t infos);
+
+/**
+ * @brief Casts to int
+ * @param this Current instance
+ * @return (int)
+ */
+#define to_int(this) to_int(this, PROTO_DATA)
+
+int (to_int)(const string_t *this, global_info_t infos);
+
+/**
+ * @brief Compares two string object
+ * @param this Current instance
+ * @param str Object to compare
+ * @return (int)
+ */
+#define compare(this, str) compare(this, str, PROTO_DATA)
+
+int (compare)(const string_t *this, const string_t *str, global_info_t infos);

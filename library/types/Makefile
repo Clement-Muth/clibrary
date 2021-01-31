@@ -30,7 +30,10 @@ SRC_STRING			=	new_string.c	\
 						assign.c	\
 						destroy.c	\
 						append.c	\
-						insert.c
+						insert.c	\
+						at.c	\
+						to_int.c	\
+						compare.c
 
 SRC					=	$(addprefix $(PATH_NUMBER), $(SRC_NUMBER)) \
 						$(addprefix $(PATH_STRING), $(SRC_STRING))

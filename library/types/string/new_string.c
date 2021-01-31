@@ -14,20 +14,16 @@ static void init_functions(string_t *this, register char const *restrict value)
 {
     this->append = append;
     this->assign = assign;
-    // this->at = at;
+    this->at = at;
     this->length = (value) ? my_strlen(value) : (size_t)0;
     this->buffer = (value) ? MAX(this->length, ((size_t)10)) : (size_t)0;
-    // this->c_str = c_str;
-    // this->clear = clear;
-    // this->compare_c = compare_c;
-    // this->compare = compare;
-    // this->copy = copy;
+    this->compare = compare;
     this->string_destroy = string_destroy;
-    // this->empty = empty;
     this->find = find;
     this->insert = insert;
     this->print = print;
     this->str = (value) ? my_strdup(value) : NULL;
+    this->to_int = to_int;
 }
 
 string_t *(new_string)(char const *restrict value, global_info_t infos)
