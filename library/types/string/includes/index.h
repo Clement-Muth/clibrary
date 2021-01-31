@@ -37,7 +37,6 @@ void insert(string_t *this, size_t pos, const string_t *str);
 void insert_c(string_t *this, size_t pos, const char *str);
 int to_int(const string_t *this);
 
-
 /**
  * @brief Appends the content of ap to that of the current instance.
  * @param this Current instance
