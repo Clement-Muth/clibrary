@@ -10,21 +10,10 @@ WARNING				=	/bin/echo -e "\x1b[1m\x1b[33m\#\#\x1b[33m $1\x1b[0m"
 ERROR				=	/bin/echo -e "\x1b[1m\x1b[33m\#\#\x1b[31m $1\x1b[0m"
 DONE				=	/bin/echo -e "\x1b[1m\x1b[33m\#\#\x1b[34m $1\x1b[0m"
 
-LIB 				=	libtypes.a
-
-# ## ==============================SOURCE ARRAY================================ ##
-# PATH_ARRAY			=	array/
-# SRC_ARRAY			=	string/new_string_a.c \
-# 						string/push.c \
-# 						string/copy.c
-
-## ==============================SOURCE NUMBER=============================== ##
-PATH_NUMBER			=	number/
-SRC_NUMBER			=	new_number.c
+LIB 				=	libstring.a
 
 ## ==============================SOURCE STRING=============================== ##
-PATH_STRING			=	string/
-SRC_STRING			=	new_string.c	\
+SRC					=	new_string.c	\
 						find.c	\
 						print.c	\
 						assign.c	\
@@ -34,10 +23,6 @@ SRC_STRING			=	new_string.c	\
 						at.c	\
 						to_int.c	\
 						compare.c
-
-SRC					=	$(addprefix $(PATH_NUMBER), $(SRC_NUMBER)) \
-						$(addprefix $(PATH_STRING), $(SRC_STRING))
-						# $(addprefix $(PATH_ARRAY), $(SRC_ARRAY))
 
 CFLAGS 				=	-Wall -DDEBUG -Werror -Wextra -pedantic
 

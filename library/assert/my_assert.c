@@ -8,8 +8,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "../includes/index.h"
-#include "../print/includes/index.h"
 #include "../utils/includes/index.h"
+#include "../includes/color.h"
 #include "index.h"
 
 static char *error_underline(int length)

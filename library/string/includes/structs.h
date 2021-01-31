@@ -9,7 +9,7 @@
 
 #include <stdbool.h>
 #include <stdlib.h>
-#include "../../../includes/struct.h"
+#include "../../includes/struct.h"
 #include "macro.h"
 
 typedef struct string_s

@@ -7,9 +7,9 @@
 
 #pragma once
 
-#include "../../../includes/assert.h"
-#include "../../../includes/constant.h"
-#include "../../../utils/includes/index.h"
+#include "../../includes/assert.h"
+#include "../../includes/constant.h"
+#include "../../utils/includes/index.h"
 #include "structs.h"
 #include "macro.h"
 

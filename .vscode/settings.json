@@ -9,6 +9,7 @@
     "macro.h": "c",
     "stdarg.h": "c",
     "struct.h": "c",
-    "type.h": "c"
+    "type.h": "c",
+    "string.h": "c"
   },
 }

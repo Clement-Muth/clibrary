@@ -7,7 +7,7 @@
 
 GCC	=	gcc
 CFLAGS	=	-Wall -Wextra -g -DDEBUG
-LBLIBS	=	-L./bin/ -lconsole -L./bin/ -ltypes -L./bin/ -lutils -L./bin/ -lassert
+LBLIBS	=	-L./bin/ -lstring -L./bin/ -lutils -L./bin/ -lassert
 LIB_PATH	=	library
 
 SRC =	main.c
@@ -20,22 +20,19 @@ $(EXEC): lib $(OBJ)
 	$(GCC) $(CFLAGS) -o $@ $(OBJ) $(LBLIBS)
 
 lib:
-	$(MAKE) -C $(LIB_PATH)/types/
-	$(MAKE) -C $(LIB_PATH)/print/
+	$(MAKE) -C $(LIB_PATH)/string/
 	$(MAKE) -C $(LIB_PATH)/assert/
 	$(MAKE) -C $(LIB_PATH)/utils/
 
 clean:
 	rm -rf $(OBJ)
-	$(MAKE) -C $(LIB_PATH)/types/ clean
-	$(MAKE) -C $(LIB_PATH)/print/ clean
+	$(MAKE) -C $(LIB_PATH)/string/ clean
 	$(MAKE) -C $(LIB_PATH)/assert/ clean
 	$(MAKE) -C $(LIB_PATH)/utils/ clean
 
 fclean:	clean
 	rm -rf $(EXEC)
-	$(MAKE) -C $(LIB_PATH)/types/ fclean
-	$(MAKE) -C $(LIB_PATH)/print/ fclean
+	$(MAKE) -C $(LIB_PATH)/string/ fclean
 	$(MAKE) -C $(LIB_PATH)/assert/ fclean
 	$(MAKE) -C $(LIB_PATH)/utils/ fclean
 

@@ -5,7 +5,7 @@
 ** main
 */
 
-#include "library/includes/type.h"
+#include "library/includes/string.h"
 
 int main(void)
 {
