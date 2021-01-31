@@ -54,6 +54,7 @@ Real exception mechanisms need run-time support. To do that, we'll explore the p
 ***setjmp*** take a ***jmp_buf*** type variable as only input. It returns `0` when invoked directly and when ***longjmp*** is invoked with the same ***jmp_buf*** variable. It returns the value passed as second argument of ***longjmp***.
 
 Example of basic try-throw-catch:
+
 ```c
 #include <stdio.h>
 #include <setjmp.h>
@@ -77,3 +78,59 @@ int main(int argc, char** argv)
     return (0);
 }
 ```
+
+<h1 align="center"><img src="https://github.com/Clement-Muth/clibrary/blob/master/assets/Capture-20210131015639-924x51.png"></h1>
+
+Then here is a concrete example of the use of the try-throw-catch:
+
+```c
+#include "includes/index.h"
+#include <string.h>
+
+static jmp_buf ex_buf;
+
+static void assign_c(string_t *this, register char const *restrict s)
+{
+    if (is_undefined(this->str) || is_undefined(s)) THROW(3);
+    string_destroy(this);
+    this->str = (char *)s;
+    this->length = my_strlen(s);
+}
+
+void (assign)(string_t *this, string_t const *restrict str, global_info_t infos)
+{
+    TRY {
+        my_assert(this != NULL, infos, ASSERT_INFO(DESC_ERR_THIS_UNDEFINED,
+            ERR_TYPE, FAIL_EXEC), ex_buf);
+        my_assert(str != NULL, infos, ASSERT_INFO(DESC_ERR_STR_UNDEFINED,
+            ERR_TYPE, FAIL_EXEC), ex_buf);
+        assign_c(this, str->str);
+    } CATCH(1) {
+        return;
+    } CATCH(3) {
+        my_warning_assert(!is_undefined(this->str), infos, ASSERT_INFO(
+            DESC_ERR_STR_UNDEFINED, ERR_TYPE, FAIL_FUNC_EXEC), ex_buf);
+        my_warning_assert(!is_undefined(str->str), infos, ASSERT_INFO(
+            DESC_ERR_STR_UNDEFINED, ERR_TYPE, FAIL_FUNC_EXEC), ex_buf);
+    } ETRY;
+}
+```
+
+`assign` function from `string` object is use to assign a new value to your object. Some errors could occured like those above. (`my_assert` and `my_warning_assert` functions are the next points of this part.).
+
+In this example, `assign_c` is a possible cancellation point therefore there is a THROW inside which throw exception 3 if `this->str` or `s` are undefined.
+
+In this case, `CATCH(3)` is called and a jump is made from the call throw to the catch in question.
+
+### Display - my_assert / my_warning_assert
+
+In this part, we are talking about the error display.
+As you saw before, my_assert and warning_assert are use to processed error. 4 arguments must be provided:
+- assertion => expression to evaluate
+- infos => struct contains all information about the error: `__LINE__` `__FILE__` and so on...
+- ASSERT_INFO container all information about the type of error
+
+<h1 align="center"><img src="https://github.com/Clement-Muth/clibrary/blob/master/assets/Capture-20210131022049-925x195.png"></h1>
+
+- `my_warning_assert` function display a warning with the type of error. The function process is aborted but the program continues.
+- `my_assert` function display an error with the type of error. The function is aborted and the program `exit(84)`
