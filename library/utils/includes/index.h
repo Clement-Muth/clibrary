@@ -109,4 +109,23 @@ void *my_memset(void *dest, int val, register size_t length);
  */
 char *my_strcpy(char *dest, char const *restrict src);
 
+/**
+ * @brief Returns the number of characters before a null-byte in the string
+ * pointed to by str, unless there's no null-byte before maxlen. In the latter
+ * case maxlen is returned.
+ * @param string
+ * @param maxlength
+ * @return (size_t)
+ */
+size_t my_strnlen(char const *restrict string, size_t maxlength);
+
+/**
+ * @brief Copies the first num characters of source to destination.
+ * @param s1
+ * @param size_t
+ * @param n
+ * @return (char *)
+ */
+char *my_strncpy(char *s1, char const *restrict s2, register size_t n);
+
 #endif /* !UTILS_INDEX_H_ */
