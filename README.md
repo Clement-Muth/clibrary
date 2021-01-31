@@ -5,6 +5,8 @@ The goal of clibrary is to create/simulate an environment of programming oriente
 The idea is to substitute the use of native types like `char *` by autonomous object.
 Clibrary also provides an efficient debugger to reduce debugging sessions...
 
+⚠️ This library contains many not standard features ⚠️
+
 # Sommaire
 
 - [Characteristics of clibrary](https://github.com/Clement-Muth/clibrary#characteristics-of-clibrary)
