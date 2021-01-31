@@ -1,7 +1,7 @@
 <h1 align="center"><strong>⚠️ This is work in progress. ⚠️</strong></h1>
 
 # Goal of clibrary
-The goal of clibrary is to create/simulate an environment of programming oriented object in C and provides many feature from c++ nor Javascript.
+The goal of clibrary is to create/simulate an environment of programming oriented object in C and provides many feature from c++ and Javascript.
 The idea is to substitute the use of native types like `char *` by autonomous object.
 Clibrary also provides an efficient debugger to reduce debugging sessions...
 
@@ -17,7 +17,7 @@ Clibrary also provides an efficient debugger to reduce debugging sessions...
     | Array string |    ...                         |
     | Array number |    ...                         |
     
-- Provide many features from **c++** nor **javascript**
+- Provide many features from **c++** and **javascript**
 
 # Debugger
 
@@ -47,7 +47,7 @@ There is no try catch statement in C but there are some ways to reproduce their 
 The solution here is not a fully functional try-throw-catch system. It does not forward exceptions from one block to one more external if no handler is provided.
 Real exception mechanisms need run-time support. To do that, we'll explore the potentiality of ***longjmp*** and ***setjmp*** function with a non trivial example.
 
-***longjmp*** and ***setjmp*** are defined in *setjmp.h* header file...
+***longjmp*** and ***setjmp*** are defined in ***setjmp.h*** header file...
 ```c
 #include <setjmp.h>
 ```
@@ -129,6 +129,7 @@ As you saw before, my_assert and warning_assert are used to process the error. 4
 - Assertion => expression to evaluate
 - Infos => structure contains all information about the error: `__LINE__` `__FILE__` and so on...
 - ASSERT_INFO container all information about the type of error
+- ex_buf variable to catch throw
 
 <h1 align="center"><img src="https://github.com/Clement-Muth/clibrary/blob/master/assets/Capture-20210131022049-925x195.png"></h1>
 
