@@ -41,7 +41,7 @@ void (logger)(const void *data, int n_args, ...)
     if (n_args) {
         type = va_arg(list, int);
         type_array[type](data, type);
-    } else
-        type_array[get_type(data)](data, -1);
+    } //else
+        //type_array[get_type(data)](data, -1);
     va_end(list);
 }

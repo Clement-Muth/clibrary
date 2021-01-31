@@ -14,13 +14,13 @@
 #include "../types/array/string/includes/macro.h"
 #include "../includes/macro.h"
 
-static int write_warn_string(const char *message)
-{
-    print_color("warning ", "\033[1;33m", STAND_OUTPUT);
-    for (int i = 0; message[i]; i++)
-        my_putchar(message[i], STAND_OUTPUT);
-    return my_strlen(message);
-}
+// static int write_warn_string(const char *message)
+// {
+//     print_color("warning ", "\033[1;33m", STAND_OUTPUT);
+//     for (int i = 0; message[i]; i++)
+//         my_putchar(message[i], STAND_OUTPUT);
+//     return my_strlen(message);
+// }
 
 void warn(const void *data)
 {
